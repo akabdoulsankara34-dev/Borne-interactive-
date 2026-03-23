@@ -208,8 +208,8 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--lite);color:var(--dark);min-height:100vh;transition:background var(--t),color var(--t)}
 
 /* ── LOADER ──────────────────────────────────── */
-#loader{position:fixed;inset:0;background:var(--dark2);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .8s cubic-bezier(.4,0,.2,1),visibility .8s}
-[data-theme="dark"] #loader{background:#0A0D0C}
+#loader{position:fixed;inset:0;background:#030c06;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .8s cubic-bezier(.4,0,.2,1),visibility .8s}
+[data-theme="dark"] #loader{background:#030c06}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 
 /* Fond animé du loader */
@@ -970,11 +970,11 @@ footer.integral-footer::before{
 .dish-modal-close:hover{background:rgba(0,0,0,.7)}
 
 /* 8. WHATSAPP FLOTTANT */
-#waFloat{position:fixed;bottom:88px;right:22px;z-index:400;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:transform .25s ease,box-shadow .25s ease;animation:waBounce 3s ease-in-out infinite}
+#waFloat{position:fixed !important;bottom:58px !important;left:22px !important;right:auto !important;z-index:9000;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:transform .25s ease,box-shadow .25s ease;animation:waBounce 3s ease-in-out infinite}
 #waFloat:hover{transform:scale(1.12)!important;box-shadow:0 8px 32px rgba(37,211,102,.6)}
 #waFloat svg{width:26px;height:26px;fill:#fff}
 @keyframes waBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.wa-tooltip{position:absolute;right:60px;top:50%;transform:translateY(-50%);background:rgba(10,13,12,.9);backdrop-filter:blur(8px);color:#fff;font-size:.7rem;white-space:nowrap;padding:6px 12px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .2s;font-family:'DM Sans',sans-serif;border:1px solid rgba(255,255,255,.08)}
+.wa-tooltip{position:absolute;left:60px;right:auto;top:50%;transform:translateY(-50%);background:rgba(10,13,12,.9);backdrop-filter:blur(8px);color:#fff;font-size:.7rem;white-space:nowrap;padding:6px 12px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .2s;font-family:'DM Sans',sans-serif;border:1px solid rgba(255,255,255,.08)}
 #waFloat:hover .wa-tooltip{opacity:1}
 
 /* 9. POPUP OFFRE DU JOUR */
@@ -998,7 +998,7 @@ footer.integral-footer::before{
 .btn-share-order svg{width:16px;height:16px;fill:currentColor}
 
 /* 11. SON D'AMBIANCE */
-#ambBtn{position:fixed;bottom:150px;right:22px;z-index:400;width:46px;height:46px;border-radius:50%;background:rgba(10,13,12,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+#ambBtn{position:fixed;bottom:142px;right:22px;z-index:400;width:46px;height:46px;border-radius:50%;background:rgba(10,13,12,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);box-shadow:0 4px 16px rgba(0,0,0,.3)}
 #ambBtn:hover{border-color:var(--gold);color:var(--gold)}
 #ambBtn.playing{border-color:rgba(201,168,76,.6);color:var(--gold);box-shadow:0 0 24px rgba(201,168,76,.2)}
 #ambBtn svg{width:18px;height:18px;fill:currentColor}
@@ -1020,7 +1020,7 @@ footer.integral-footer::before{
 .welcome-text strong{color:var(--gold);font-weight:600}
 
 /* VISITE GUIDEE */
-#tourOverlay{position:fixed;inset:0;z-index:8000;pointer-events:none}
+#tourOverlay{display:none !important;pointer-events:none !important}
 #tourOverlay.active{pointer-events:all}
 .tour-highlight{position:fixed;z-index:8002;border-radius:14px;box-shadow:0 0 0 9999px rgba(0,0,0,.68),0 0 0 3px var(--gold);transition:all .45s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .tour-bubble{position:fixed;z-index:8003;background:var(--white);border-radius:18px;padding:18px 20px 16px;max-width:280px;min-width:220px;box-shadow:0 16px 48px rgba(0,0,0,.3);animation:tourBubbleIn .35s cubic-bezier(.4,0,.2,1)}
@@ -1044,7 +1044,7 @@ footer.integral-footer::before{
 .tour-btn-next:hover{transform:translateY(-1px)}
 
 /* BOUTON AIDE */
-#helpBtn{position:fixed;bottom:208px;right:22px;z-index:400;width:46px;height:46px;border-radius:50%;background:rgba(10,13,12,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);box-shadow:0 4px 16px rgba(0,0,0,.3);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600}
+#helpBtn{position:fixed;bottom:200px;right:22px;z-index:400;width:46px;height:46px;border-radius:50%;background:rgba(10,13,12,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);box-shadow:0 4px 16px rgba(0,0,0,.3);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600}
 #helpBtn:hover{border-color:var(--gold);color:var(--gold)}
 #helpPanel{position:fixed;bottom:268px;right:16px;z-index:500;width:300px;background:var(--white);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.25);border:1px solid var(--border);transform:scale(.9) translateY(10px);transform-origin:bottom right;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s cubic-bezier(.4,0,.2,1)}
 #helpPanel.open{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
@@ -1058,8 +1058,7 @@ footer.integral-footer::before{
 .help-item-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .help-item-text strong{font-size:.8rem;font-weight:700;color:var(--dark);display:block;margin-bottom:2px}
 .help-item-text span{font-size:.7rem;color:var(--mid);line-height:1.4}
-.help-tour-btn{margin:0 14px 14px;width:calc(100% - 28px);background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border:none;border-radius:11px;padding:11px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 4px 12px rgba(26,107,60,.25);transition:var(--t)}
-.help-tour-btn:hover{transform:translateY(-1px)}
+.help-tour-btn{display:none !important}
 
 /* PULSE ATTENTION */
 @keyframes pulseAttention{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}50%{box-shadow:0 0 0 10px rgba(201,168,76,0)}}
@@ -1074,46 +1073,82 @@ footer.integral-footer::before{
 /* ── BOUTON DÉMARRER LA DÉMO (Hero CTA) ─────────────── */
 #demoCTA {
   position:fixed;inset:0;z-index:9500;
-  background:rgba(5,14,8,.92);backdrop-filter:blur(18px);
+  background:linear-gradient(155deg,#030c06 0%,#061209 50%,#03080a 100%);
   display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+/* Grain premium sur le fond */
+#demoCTA::before {
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-size:180px;pointer-events:none;opacity:.4;
+}
+/* Lueur verte en haut */
+#demoCTA::after {
+  content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(26,107,60,.22) 0%,transparent 70%);
+  pointer-events:none;
 }
 .demo-cta-box {
-  text-align:center;animation:fadeUp .7s ease;max-width:420px;padding:0 24px;
+  text-align:center;animation:fadeUp .8s cubic-bezier(.4,0,.2,1);
+  max-width:480px;padding:0 32px;position:relative;z-index:1;
 }
 .demo-cta-logo {
-  font-family:'Cormorant Garamond',serif;font-size:2rem;
-  color:#fff;font-weight:300;letter-spacing:3px;margin-bottom:6px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  color:#fff;font-weight:300;letter-spacing:6px;margin-bottom:6px;
+  text-transform:uppercase;
 }
-.demo-cta-logo span { color:var(--gold) }
+.demo-cta-logo span { color:var(--gold);font-style:italic;font-weight:600; }
 .demo-cta-sub {
-  font-size:.72rem;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:40px;
+  font-size:clamp(.6rem,1.5vw,.72rem);letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:44px;
 }
+/* Ligne dorée decorative */
+.demo-cta-divider {
+  width:50px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 36px;
+  animation:ctaDivExpand 1.2s ease .6s both;
+}
+@keyframes ctaDivExpand { from{width:10px;opacity:0} to{width:50px;opacity:1} }
+
 .demo-cta-btn {
-  display:inline-flex;align-items:center;gap:12px;
-  background:linear-gradient(135deg,var(--g),var(--g2));
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,var(--g) 0%,var(--g2) 60%,#2EA864 100%);
   color:#fff;border:none;border-radius:50px;
-  padding:18px 36px;font-size:1rem;font-weight:700;
+  padding:clamp(15px,2.5vw,20px) clamp(28px,4vw,44px);
+  font-size:clamp(.9rem,2vw,1.05rem);font-weight:700;
   cursor:pointer;font-family:'DM Sans',sans-serif;
-  box-shadow:0 8px 32px rgba(26,107,60,.5);
-  transition:transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 8px 32px rgba(26,107,60,.55),inset 0 1px 0 rgba(255,255,255,.15);
+  transition:transform .2s ease,box-shadow .2s ease;
   animation:pulseGreen 2.5s infinite;
+  border:1.5px solid rgba(201,168,76,.2);
+  position:relative;overflow:hidden;
 }
-.demo-cta-btn:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(26,107,60,.7)}
-.demo-cta-btn svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.demo-cta-btn::after {
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  animation:btnShine 3s ease 1.5s infinite;
+}
+@keyframes btnShine{0%{left:-100%}60%,100%{left:160%}}
+.demo-cta-btn:hover{transform:scale(1.04) translateY(-2px);box-shadow:0 14px 44px rgba(26,107,60,.72)}
+.demo-cta-btn svg{width:clamp(18px,2.5vw,22px);height:clamp(18px,2.5vw,22px);fill:#fff;flex-shrink:0}
 .demo-cta-hint {
-  margin-top:18px;font-size:.7rem;
-  color:rgba(255,255,255,.3);letter-spacing:.5px;
+  margin-top:18px;font-size:clamp(.62rem,1.2vw,.72rem);
+  color:rgba(255,255,255,.28);letter-spacing:.5px;
 }
 .demo-cta-skip {
-  margin-top:14px;display:block;font-size:.72rem;
-  color:rgba(255,255,255,.25);cursor:pointer;border:none;
+  margin-top:16px;display:block;font-size:clamp(.65rem,1.3vw,.75rem);
+  color:rgba(255,255,255,.2);cursor:pointer;border:none;
   background:none;font-family:'DM Sans',sans-serif;
   transition:color .2s;letter-spacing:.5px;
+  padding:8px;
 }
 .demo-cta-skip:hover{color:rgba(255,255,255,.6)}
 .demo-cta-dots {
-  display:flex;gap:8px;justify-content:center;margin-bottom:32px;
+  display:flex;gap:8px;justify-content:center;margin-bottom:34px;
 }
 .demo-cta-dot {
   width:6px;height:6px;border-radius:50%;
@@ -1124,14 +1159,23 @@ footer.integral-footer::before{
 .demo-cta-dot.c{background:var(--gold);animation:dotBlink 1.4s .4s ease-in-out infinite}
 @keyframes dotBlink{0%,100%{opacity:.2}50%{opacity:1}}
 
+/* Smart TV : éléments plus grands */
+.smart-tv #demoCTA .demo-cta-logo   { font-size:clamp(2.4rem,4.5vw,3.8rem); }
+.smart-tv #demoCTA .demo-cta-btn    { padding:22px 56px;font-size:1.25rem; }
+.smart-tv #demoCTA .demo-cta-hint   { font-size:.88rem; }
+
+
 /* ── BARRE DE CONTRÔLE DÉMO ──────────────────────────── */
 #demoBar {
   position:fixed;bottom:42px;left:0;right:0;z-index:9000;
-  background:rgba(5,14,8,.95);backdrop-filter:blur(20px);
-  border-top:1px solid rgba(201,168,76,.2);
-  padding:10px 16px 12px;
+  background:linear-gradient(180deg,rgba(3,10,5,.97) 0%,rgba(6,14,8,.99) 100%);
+  backdrop-filter:blur(24px) saturate(1.4);
+  border-top:1px solid rgba(201,168,76,.25);
+  border-bottom:1px solid rgba(201,168,76,.06);
+  padding:10px 20px 13px;
   transform:translateY(calc(100% + 42px));
   transition:transform .4s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 -4px 24px rgba(0,0,0,.4);
 }
 #demoBar.visible{transform:translateY(0)}
 .demo-bar-top {
@@ -1255,6 +1299,85 @@ body.kiosk-mode #topbar { zoom:1.1 }
 body.kiosk-mode .card { zoom:1.05 }
 body.kiosk-mode #demoBar { padding:12px 24px 16px }
 
+/* ── AMÉLIORATIONS KIOSQUE PREMIUM ──────────────────── */
+
+/* Cartes : ombres plus riches */
+.card {
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t) !important;
+}
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 36px rgba(26,107,60,.18), 0 4px 16px rgba(0,0,0,.1) !important;
+  border-color: rgba(26,107,60,.25) !important;
+}
+.card:active { transform: translateY(-1px) scale(.99) !important; }
+
+/* Bouton ajouter : feedback amélioré */
+.btn-add {
+  transition: transform var(--t), box-shadow var(--t), background var(--t) !important;
+}
+.btn-add:hover { transform: scale(1.14) !important; }
+.btn-add:active { transform: scale(.94) !important; }
+
+/* Nav tabs : taille min pour écran tactile */
+.ntab { min-height: 42px; min-width: 80px; }
+
+/* Section heads : ligne gauche plus voyante */
+.section-accent {
+  width: 3px !important;
+  background: linear-gradient(180deg, var(--gold), var(--g)) !important;
+  border-radius: 3px;
+  opacity: 1 !important;
+}
+
+/* Panier bouton : shimmer */
+.btn-cart {
+  position: relative; overflow: hidden;
+}
+.btn-cart::after {
+  content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  animation: cartShine 3.5s ease 2s infinite;
+}
+@keyframes cartShine { 0%{left:-100%} 60%,100%{left:150%} }
+
+/* Bulle de narration : plus visible */
+#demoNarration {
+  box-shadow: 0 4px 24px rgba(0,0,0,.4), 0 0 0 1px rgba(201,168,76,.15) !important;
+}
+
+/* Progress bar démo : dorée plus franche */
+.demo-progress-fill {
+  background: linear-gradient(90deg, var(--g), var(--gold)) !important;
+}
+.demo-progress-thumb {
+  border: 2px solid var(--gold) !important;
+  box-shadow: 0 0 8px rgba(201,168,76,.5) !important;
+}
+
+/* Toast : plus visible */
+#toast {
+  font-size: .85rem !important;
+  padding: 13px 28px !important;
+  border-radius: 50px !important;
+}
+
+/* Footer : ligne décorative top renforcée */
+footer.integral-footer {
+  border-top: 1px solid rgba(201,168,76,.2) !important;
+}
+
+/* Smart TV : tout ce qui est interactif doit être plus grand */
+.smart-tv .card-name       { font-size: 1rem !important; }
+.smart-tv .card-price      { font-size: 1.05rem !important; }
+.smart-tv .ntab            { font-size: .9rem !important; padding: 0 18px !important; }
+.smart-tv .btn-add         { width: 38px !important; height: 38px !important; }
+.smart-tv #topbar          { height: 70px !important; }
+.smart-tv .brand-name      { font-size: 1.3rem !important; }
+.smart-tv .ticker-item     { font-size: 1.1rem !important; }
+.smart-tv #openStatus      { font-size: .75rem !important; }
+
+
 /* ── INDICATEUR CHAPITRE ─────────────────────────────── */
 #chapterIndicator {
   display:none !important;
@@ -1291,17 +1414,18 @@ body.kiosk-mode #demoBar { padding:12px 24px 16px }
   <div class="demo-cta-box">
     <div class="demo-cta-logo">Intégral <span>Restaurant</span></div>
     <div class="demo-cta-sub">Bar &amp; Café · Cissin, Ouagadougou</div>
+    <div class="demo-cta-divider"></div>
     <div class="demo-cta-dots">
       <div class="demo-cta-dot a"></div>
       <div class="demo-cta-dot b"></div>
       <div class="demo-cta-dot c"></div>
     </div>
-    <button class="demo-cta-btn" onclick="startDemo()">
+    <button class="demo-cta-btn" id="demoCTABtn" onclick="startDemo()">
       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       Lancer la démonstration
     </button>
     <div class="demo-cta-hint">Présentation interactive · 6 minutes · Narration en français</div>
-    <div id="ttsStatus" style="margin-top:10px;font-size:.68rem;color:rgba(255,255,255,.25);font-family:'DM Sans',sans-serif;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:8px">
+    <div id="ttsStatus" style="margin-top:10px;font-size:.68rem;color:rgba(255,255,255,.25);font-family:'DM Sans',sans-serif;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap">
       <span id="ttsStatusDot" style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-block;flex-shrink:0"></span>
       <span id="ttsStatusText">Vérification de l'audio…</span>
       <button onclick="demoTestAudio()" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);border-radius:20px;padding:3px 10px;cursor:pointer;font-size:.62rem;font-family:'DM Sans',sans-serif;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Tester l'audio</button>
@@ -1475,7 +1599,7 @@ body.kiosk-mode #demoBar { padding:12px 24px 16px }
 </div>
 
 <!-- SON D'AMBIANCE -->
-<button id="ambBtn" onclick="toggleAmb()" title="Musique d'ambiance" style="position:fixed;bottom:150px;right:22px">
+<button id="ambBtn" onclick="toggleAmb()" title="Musique d'ambiance" style="position:fixed;bottom:142px;right:22px">
   <div class="amb-wave"></div>
   <div class="amb-wave"></div>
   <div class="amb-wave"></div>
@@ -1861,6 +1985,10 @@ body.kiosk-mode #demoBar { padding:12px 24px 16px }
             <svg viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 018.5 12 3.5 3.5 0 0112 8.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 01-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08s-.03-.73-.07-1.08l2.31-1.81c.21-.16.27-.44.14-.67l-2.19-3.79c-.14-.23-.41-.3-.64-.21l-2.72 1.09c-.57-.43-1.17-.79-1.83-1.07L14.02 3.1A.517.517 0 0013.5 2.7h-3c-.25 0-.46.18-.5.42L9.66 5.44c-.66.28-1.26.64-1.83 1.07L5.11 5.42c-.24-.09-.5-.01-.64.21L2.28 9.42c-.13.23-.07.51.14.67l2.31 1.81c-.04.35-.07.7-.07 1.08s.03.73.07 1.08L2.42 15.87c-.21.16-.27.44-.14.67l2.19 3.79c.14.23.41.3.64.21l2.72-1.09c.57.43 1.17.79 1.83 1.07l.34 2.33c.04.25.25.43.5.43h3c.25 0 .46-.18.5-.42l.34-2.34c.66-.28 1.26-.64 1.83-1.07l2.72 1.09c.24.09.5.01.64-.21l2.19-3.79c.14-.23.07-.51-.14-.67l-2.31-1.8z" fill="currentColor"/></svg>
             Config
           </div>
+          <div class="atab" onclick="switchTab('tv',this)">
+            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z" fill="currentColor"/></svg>
+            TV Borne
+          </div>
         </div>
 
         <!-- STATS -->
@@ -2011,6 +2139,203 @@ body.kiosk-mode #demoBar { padding:12px 24px 16px }
           </div>
         </div>
       </div><!-- /adminDash -->
+
+        <!-- ══ TABLEAU DE BORD TV BORNE ══════════════════════════════ -->
+        <div id="tab-tv" style="display:none">
+
+          <!-- Live indicator -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;padding:10px 14px;background:linear-gradient(90deg,rgba(26,107,60,.08),rgba(201,168,76,.06));border-radius:12px;border:1px solid rgba(26,107,60,.15)">
+            <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.6);flex-shrink:0;animation:openPulse 1.5s ease-in-out infinite"></span>
+            <span style="font-size:.72rem;color:var(--g);font-weight:700;text-transform:uppercase;letter-spacing:1px">Synchronisation en temps réel activée</span>
+            <span style="font-size:.7rem;color:var(--muted);margin-left:auto">Toute modification s'applique instantanément sur la borne</span>
+          </div>
+
+          <!-- SECTION 1 : Playlist TV -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z" fill="currentColor"/></svg>
+              Playlist TV &amp; Interlude
+            </h5>
+            <p style="font-size:.76rem;color:var(--muted);margin-bottom:14px;line-height:1.6">
+              Ces clips s'affichent dans la TV Intégral et en interlude entre chaque boucle de démo. Collez des liens YouTube, MP4 ou stream audio.
+            </p>
+            <!-- Ajouter un clip -->
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <input id="tv-clip-url" type="text" placeholder="https://www.youtube.com/watch?v=..." style="flex:1;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"/>
+              <input id="tv-clip-label" type="text" placeholder="Nom du clip" style="width:160px;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"/>
+              <button onclick="tvAddClip()" style="background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border:none;border-radius:10px;padding:10px 16px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:var(--t)">+ Ajouter</button>
+            </div>
+            <div id="tv-clips-list" style="display:flex;flex-direction:column;gap:6px"></div>
+            <!-- Durée interlude -->
+            <div style="margin-top:14px;display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+              <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--g);flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <span style="font-size:.8rem;color:var(--mid);flex:1">Durée de l'interlude</span>
+              <input id="tv-interlude-dur" type="number" min="10" max="300" value="60" style="width:70px;border:2px solid var(--border);border-radius:8px;padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;outline:none;text-align:center;background:var(--white);color:var(--dark)" oninput="tvSaveSetting('interludeDuration',this.value)"/>
+              <span style="font-size:.78rem;color:var(--muted)">secondes</span>
+            </div>
+          </div>
+
+          <!-- SECTION 2 : Ticker -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" fill="currentColor"/></svg>
+              Bandeau défilant
+            </h5>
+            <p style="font-size:.76rem;color:var(--muted);margin-bottom:14px;line-height:1.6">Messages affichés en bas de la borne. Cliquez sur un message pour le modifier.</p>
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <input id="ticker-new-icon" type="text" placeholder="🎵" style="width:58px;border:2px solid var(--border);border-radius:10px;padding:10px;font-size:1.1rem;text-align:center;outline:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"/>
+              <input id="ticker-new-text" type="text" placeholder="Votre message pour les clients…" style="flex:1;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"/>
+              <button onclick="tickerAddMsg()" style="background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border:none;border-radius:10px;padding:10px 16px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap">+ Ajouter</button>
+            </div>
+            <div id="ticker-msgs-list" style="display:flex;flex-direction:column;gap:6px"></div>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+              <span style="font-size:.8rem;color:var(--mid);flex:1">Vitesse de défilement</span>
+              <input id="ticker-speed" type="range" min="10" max="60" value="28" style="width:100px" oninput="tvSaveSetting('tickerSpeed',this.value);this.nextElementSibling.textContent=this.value+'s'"/>
+              <span style="font-size:.78rem;font-weight:700;color:var(--g);min-width:30px">28s</span>
+            </div>
+          </div>
+
+          <!-- SECTION 3 : Message Flash -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z" fill="currentColor"/></svg>
+              Message Flash — Diffusion immédiate
+            </h5>
+            <p style="font-size:.76rem;color:var(--muted);margin-bottom:14px;line-height:1.6">Affichez un message urgent plein écran sur la borne. Utile pour annonces, promotions, fermeture exceptionnelle.</p>
+            <div class="fg" style="margin-bottom:10px">
+              <label>Titre du message</label>
+              <input type="text" id="flash-title" placeholder="Ex : Fermeture exceptionnelle" style="width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"/>
+            </div>
+            <div class="fg" style="margin-bottom:10px">
+              <label>Contenu du message</label>
+              <textarea id="flash-body" rows="2" placeholder="Ex : Nous rouvrons demain à 7h. Merci de votre compréhension." style="width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;resize:none;background:var(--white);color:var(--dark);transition:var(--t)" onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <select id="flash-type" style="border:2px solid var(--border);border-radius:10px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark)">
+                <option value="info">ℹ️ Information</option>
+                <option value="promo">🎉 Promotion</option>
+                <option value="urgent">🚨 Urgent</option>
+                <option value="closed">🔒 Fermeture</option>
+              </select>
+              <select id="flash-dur" style="border:2px solid var(--border);border-radius:10px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark)">
+                <option value="15">15 secondes</option>
+                <option value="30" selected>30 secondes</option>
+                <option value="60">1 minute</option>
+                <option value="300">5 minutes</option>
+                <option value="0">Jusqu'à fermeture</option>
+              </select>
+              <button onclick="tvSendFlash()" style="background:linear-gradient(135deg,#E53935,#C62828);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;box-shadow:0 4px 12px rgba(229,57,53,.35);transition:var(--t)">⚡ Diffuser</button>
+              <button onclick="tvClearFlash()" style="background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.82rem;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:var(--t)">Annuler</button>
+            </div>
+          </div>
+
+          <!-- SECTION 4 : Ambiance musicale -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" fill="currentColor"/></svg>
+              Ambiance musicale
+            </h5>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div style="padding:14px;background:var(--g4);border-radius:12px;border:1px solid var(--border)">
+                <div style="font-size:.72rem;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Volume par défaut</div>
+                <input id="amb-vol" type="range" min="0" max="1" step="0.05" value="0.32" style="width:100%" oninput="tvSaveSetting('ambVolume',this.value);document.getElementById('amb-vol-val').textContent=Math.round(this.value*100)+'%'"/>
+                <div style="text-align:center;font-size:.8rem;font-weight:700;color:var(--g);margin-top:4px" id="amb-vol-val">32%</div>
+              </div>
+              <div style="padding:14px;background:var(--g4);border-radius:12px;border:1px solid var(--border)">
+                <div style="font-size:.72rem;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Démarrage auto</div>
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;margin-top:6px">
+                  <div class="toggle-switch" id="amb-auto-tog" onclick="this.classList.toggle('active');tvSaveSetting('ambAutoStart',this.classList.contains('active'))"></div>
+                  <span style="font-size:.8rem;color:var(--mid)">Lancer au chargement</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 5 : Horaires -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" fill="currentColor"/></svg>
+              Horaires d'ouverture
+            </h5>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div>
+                <label style="font-size:.72rem;font-weight:700;color:var(--mid);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px">Ouverture</label>
+                <input type="time" id="hours-open" value="07:00" style="width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;background:var(--white);color:var(--dark)" onchange="tvSaveHours()"/>
+              </div>
+              <div>
+                <label style="font-size:.72rem;font-weight:700;color:var(--mid);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px">Fermeture</label>
+                <input type="time" id="hours-close" value="23:00" style="width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;background:var(--white);color:var(--dark)" onchange="tvSaveHours()"/>
+              </div>
+            </div>
+            <div style="margin-top:10px">
+              <label style="font-size:.72rem;font-weight:700;color:var(--mid);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px">Message fermé personnalisé</label>
+              <input type="text" id="hours-closed-msg" placeholder="Ex : Fermé · Ouvre à 7h" style="width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;background:var(--white);color:var(--dark)" onchange="tvSaveHours()"/>
+            </div>
+          </div>
+
+          <!-- SECTION 6 : Affichage borne -->
+          <div class="config-section">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-8.5 8.5-2 4.5 4.5-2L21 6.5zm-14 7.5l-1 2 2-1-1-1zm13-8l-1.5 1.5-1.5-1.5 1.5-1.5L20 6z" fill="currentColor"/></svg>
+              Affichage borne
+            </h5>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+                <div>
+                  <div style="font-size:.83rem;font-weight:600;color:var(--dark)">Mode kiosque automatique</div>
+                  <div style="font-size:.71rem;color:var(--muted);margin-top:2px">Zoom adaptatif pour écran TV 55"+</div>
+                </div>
+                <div class="toggle-switch" id="kiosk-auto-tog" onclick="this.classList.toggle('active');tvSaveSetting('kioskAuto',this.classList.contains('active'));if(this.classList.contains('active'))document.body.classList.add('kiosk-mode');else document.body.classList.remove('kiosk-mode')"></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+                <div>
+                  <div style="font-size:.83rem;font-weight:600;color:var(--dark)">Masquer le curseur</div>
+                  <div style="font-size:.71rem;color:var(--muted);margin-top:2px">Curseur doré visible ou invisible</div>
+                </div>
+                <div class="toggle-switch active" id="cursor-tog" onclick="this.classList.toggle('active');tvSaveSetting('cursorVisible',this.classList.contains('active'));document.getElementById('cursorDot').style.display=this.classList.contains('active')?'':'none';document.getElementById('cursorRing').style.display=this.classList.contains('active')?'':'none'"></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+                <div>
+                  <div style="font-size:.83rem;font-weight:600;color:var(--dark)">Délai écran d'attract</div>
+                  <div style="font-size:.71rem;color:var(--muted);margin-top:2px">Inactivité avant affichage de l'écran de veille</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <input id="attract-delay" type="number" min="1" max="30" value="2" style="width:60px;border:2px solid var(--border);border-radius:8px;padding:7px 10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;outline:none;background:var(--white);color:var(--dark)" oninput="tvSaveSetting('attractDelay',this.value)"/>
+                  <span style="font-size:.78rem;color:var(--muted)">min</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--g4);border-radius:10px;border:1px solid var(--border)">
+                <div>
+                  <div style="font-size:.83rem;font-weight:600;color:var(--dark)">Thème de la borne</div>
+                  <div style="font-size:.71rem;color:var(--muted);margin-top:2px">Clair ou sombre</div>
+                </div>
+                <select id="theme-sel" onchange="document.documentElement.dataset.theme=this.value;localStorage.setItem('theme',this.value);tvSaveSetting('theme',this.value)" style="border:2px solid var(--border);border-radius:8px;padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;background:var(--white);color:var(--dark)">
+                  <option value="light">☀️ Clair</option>
+                  <option value="dark">🌙 Sombre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 7 : Preview Live -->
+          <div class="config-section" style="border-bottom:none">
+            <h5>
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="currentColor"/></svg>
+              Aperçu en direct
+            </h5>
+            <div style="background:#030c06;border-radius:14px;overflow:hidden;border:1px solid rgba(201,168,76,.2)">
+              <div style="padding:10px 14px;background:rgba(26,107,60,.15);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)">
+                <span style="font-size:.7rem;color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase">Simulation ticker</span>
+                <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px rgba(34,197,94,.6)"></span>
+              </div>
+              <div id="tv-ticker-preview" style="padding:12px 16px;overflow:hidden;white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.88rem;color:#fff;font-weight:500"></div>
+            </div>
+            <button onclick="tvApplyAll()" style="margin-top:14px;width:100%;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border:none;border-radius:12px;padding:14px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(26,107,60,.3);transition:var(--t)">
+              ✅ Appliquer toutes les modifications sur la borne
+            </button>
+          </div>
+
+        </div><!-- /tab-tv -->
     </div>
   </div>
 </div>
@@ -2185,7 +2510,92 @@ const CONFIG = {
   adminPass: 'INTEGRAL@2030#',
   restaurantName: 'Intégral',
   restaurantAddr: 'Ouagadougou, Burkina Faso',
+  interludeDuration: 60,  // secondes d'interlude avant relance auto démo
 };
+
+// ══ DÉTECTION SMART TV / KIOSQUE ═════════════════
+window.TV_ENV = (() => {
+  const ua = navigator.userAgent || '';
+  const isTizen     = /Tizen/i.test(ua);
+  const isWebOS     = /WebOS|Web0S/i.test(ua);
+  const isHbbTV     = /HbbTV/i.test(ua);
+  const isAndroidTV = /Android.*TV/i.test(ua);
+  const isTV = isTizen || isWebOS || isHbbTV || isAndroidTV;
+  const heuristic = !matchMedia('(pointer:fine)').matches && window.innerWidth >= 1024;
+  return {
+    isTV,
+    isTizen, isWebOS, isHbbTV, isAndroidTV,
+    likelySmart: isTV || heuristic,
+    ttsSupported: 'speechSynthesis' in window,
+    audioCtxSupported: !!(window.AudioContext || window.webkitAudioContext),
+  };
+})();
+const TV_ENV = window.TV_ENV;
+
+// Injecter classe sur <html> pour CSS conditionnel
+if (TV_ENV.likelySmart) document.documentElement.classList.add('smart-tv');
+
+// ══ AUDIO UNLOCK OVERLAY (Smart TV / autoplay bloqué) ══
+(function initAudioUnlock(){
+  const style = document.createElement('style');
+  style.textContent = `
+  #audioUnlockOverlay {
+    display:none; position:fixed; inset:0; z-index:99990;
+    background:rgba(5,14,8,.97); align-items:center; justify-content:center;
+    flex-direction:column; gap:28px; font-family:'DM Sans',sans-serif;
+    animation:fadeInAU .5s ease;
+  }
+  #audioUnlockOverlay.show { display:flex; }
+  @keyframes fadeInAU { from{opacity:0;transform:scale(.97)} to{opacity:1;transform:none} }
+  .au-logo { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.8rem);
+    font-weight:300; letter-spacing:6px; text-transform:uppercase; color:#fff; }
+  .au-logo span { color:var(--gold); font-style:italic; font-weight:600; }
+  .au-icon { font-size:4rem; animation:auBounce 1.8s ease-in-out infinite; }
+  @keyframes auBounce { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+  .au-title { font-size:clamp(1rem,2.5vw,1.4rem); color:#fff; font-weight:600; text-align:center;
+    max-width:480px; line-height:1.5; }
+  .au-sub { font-size:clamp(.75rem,1.5vw,.9rem); color:rgba(255,255,255,.4); letter-spacing:2px;
+    text-transform:uppercase; text-align:center; }
+  .au-btn { background:linear-gradient(135deg,var(--g),var(--g2)); color:#fff; border:none;
+    border-radius:16px; padding:18px 52px; font-size:clamp(1rem,2vw,1.15rem); font-weight:700;
+    cursor:pointer; font-family:'DM Sans',sans-serif; letter-spacing:.5px;
+    box-shadow:0 8px 32px rgba(26,107,60,.5); transition:.25s;
+    border:2px solid rgba(201,168,76,.3); }
+  .au-btn:hover, .au-btn:focus { transform:scale(1.04); box-shadow:0 12px 40px rgba(26,107,60,.65); }
+  .au-skip { background:none; border:none; color:rgba(255,255,255,.3); font-size:.8rem;
+    cursor:pointer; font-family:'DM Sans',sans-serif; letter-spacing:1px; margin-top:-10px;
+    transition:.2s; }
+  .au-skip:hover { color:rgba(255,255,255,.6); }
+  `;
+  document.head.appendChild(style);
+
+  const overlay = document.createElement('div');
+  overlay.id = 'audioUnlockOverlay';
+  overlay.innerHTML = `
+    <div class="au-logo">Intégral <span>Restaurant</span></div>
+    <div class="au-icon">🔊</div>
+    <div class="au-title">Appuyez pour activer le son</div>
+    <div class="au-sub">Narration française · 6 minutes · Expérience interactive</div>
+    <button class="au-btn" id="auConfirmBtn">▶ Démarrer avec le son</button>
+    <button class="au-skip" id="auSkipBtn">Continuer sans le son →</button>
+  `;
+  document.body.appendChild(overlay);
+
+  window._audioUnlocked = false;
+  window._showAudioUnlock = function(onUnlock){
+    overlay.classList.add('show');
+    document.getElementById('auConfirmBtn').onclick = () => {
+      overlay.classList.remove('show');
+      window._audioUnlocked = true;
+      if(onUnlock) onUnlock(true);
+    };
+    document.getElementById('auSkipBtn').onclick = () => {
+      overlay.classList.remove('show');
+      window._audioUnlocked = false;
+      if(onUnlock) onUnlock(false);
+    };
+  };
+})();
 
 // ══ URL PARAMS (QR table/salon) ══════════════════
 const urlParams  = new URLSearchParams(window.location.search);
@@ -3009,13 +3419,14 @@ function doLogout(){
 function switchTab(tab, el){
   document.querySelectorAll('.atab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  ['stats','orders','menu','offres','config'].forEach(t => {
+  ['stats','orders','menu','offres','config','tv'].forEach(t => {
     const el2 = document.getElementById('tab-'+t);
     if(el2) el2.style.display = t===tab ? 'block' : 'none';
   });
-  if(tab === 'menu') window.renderMenuEditor();
-  if(tab === 'stats') renderStats();
+  if(tab === 'menu')   window.renderMenuEditor();
+  if(tab === 'stats')  renderStats();
   if(tab === 'offres') renderOffresList();
+  if(tab === 'tv')     setTimeout(initTvTab, 50);
 }
 
 // ══════════════════════════════════════════════════
@@ -3605,114 +4016,14 @@ const TOUR_STEPS = [
 let tourStep    = 0;
 let tourActive  = false;
 
-function startTour(){
-  // Ne pas relancer si déjà vu (sauf si appelé manuellement)
-  tourStep  = 0;
-  tourActive= true;
-  document.getElementById('tourOverlay').classList.add('active');
-  renderTourStep();
-}
-
-function endTour(){
-  tourActive = false;
-  document.getElementById('tourOverlay').classList.remove('active');
-  document.getElementById('tourHighlight').style.display = 'none';
-  document.getElementById('tourBubble').style.display   = 'none';
-  localStorage.setItem('integral_tour_done','1');
-}
-
-function tourNext(){
-  tourStep++;
-  if(tourStep >= TOUR_STEPS.length){ endTour(); return; }
-  renderTourStep();
-}
-
-function renderTourStep(){
-  const step    = TOUR_STEPS[tourStep];
-  const total   = TOUR_STEPS.length;
-  const hl      = document.getElementById('tourHighlight');
-  const bubble  = document.getElementById('tourBubble');
-  const nextBtn = document.getElementById('tourNextBtn');
-
-  // Update bubble text
-  document.getElementById('tourStepLabel').textContent = `Étape ${tourStep+1} / ${total}`;
-  document.getElementById('tourTitle').textContent     = step.title;
-  document.getElementById('tourDesc').textContent      = step.desc;
-  nextBtn.innerHTML = tourStep === total-1
-    ? 'Terminer ✓'
-    : 'Suivant <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>';
-
-  // Progress dots
-  const prog = document.getElementById('tourProgress');
-  prog.innerHTML = Array.from({length:total}, (_,i) =>
-    `<div class="tour-prog-dot ${i<tourStep?'done':i===tourStep?'current':''}"></div>`
-  ).join('');
-
-  bubble.style.display = 'block';
-
-  // Centré (step 0)
-  if(!step.target || step.position === 'center'){
-    hl.style.display = 'none';
-    bubble.className = 'tour-bubble';
-    bubble.style.top    = '50%';
-    bubble.style.left   = '50%';
-    bubble.style.transform = 'translate(-50%, -50%)';
-    bubble.style.bottom = 'auto';
-    bubble.style.right  = 'auto';
-    return;
-  }
-
-  const el = document.querySelector(step.target);
-  if(!el){ tourNext(); return; }
-
-  const r = el.getBoundingClientRect();
-  const pad = 8;
-
-  // Highlight
-  hl.style.display  = 'block';
-  hl.style.top      = (r.top - pad) + 'px';
-  hl.style.left     = (r.left - pad) + 'px';
-  hl.style.width    = (r.width + pad*2) + 'px';
-  hl.style.height   = (r.height + pad*2) + 'px';
-
-  // Position bubble
-  bubble.style.transform = '';
-  const bw = 280, bh = 200;
-  const vw = window.innerWidth, vh = window.innerHeight;
-
-  if(step.position === 'bottom' && r.bottom + bh + 20 < vh){
-    bubble.className = 'tour-bubble arr-top';
-    bubble.style.top    = (r.bottom + pad + 10) + 'px';
-    bubble.style.left   = Math.min(Math.max(r.left, 10), vw - bw - 10) + 'px';
-    bubble.style.bottom = 'auto';
-    bubble.style.right  = 'auto';
-  } else if(step.position === 'left' || r.left > bw + 20){
-    bubble.className = 'tour-bubble arr-right';
-    bubble.style.top    = Math.max(r.top, 10) + 'px';
-    bubble.style.left   = Math.max(r.left - bw - 20, 10) + 'px';
-    bubble.style.bottom = 'auto';
-    bubble.style.right  = 'auto';
-  } else {
-    bubble.className = 'tour-bubble arr-bottom';
-    bubble.style.bottom = (vh - r.top + pad + 10) + 'px';
-    bubble.style.top    = 'auto';
-    bubble.style.left   = Math.min(Math.max(r.left, 10), vw - bw - 10) + 'px';
-    bubble.style.right  = 'auto';
-  }
-
-  // Scroll into view
-  el.scrollIntoView({behavior:'smooth', block:'center', inline:'nearest'});
-}
+function startTour(){ return; }
+function endTour(){ return; }
+function tourNext(){ return; }
+function renderTourStep(){ return; }
 
 // Lancer la visite à la 1ère visite (après 3s)
-(function autoTour(){
-  const done = localStorage.getItem('integral_tour_done');
-  if(!done){
-    setTimeout(() => {
-      startTour();
-    }, 3200);
-  }
-})();
+// Visite guidée désactivée
+(function autoTour(){ localStorage.setItem('integral_tour_done','1'); })();
 
 
 
@@ -4361,240 +4672,234 @@ document.getElementById('offreModal').addEventListener('click', e => {
   if(e.target === document.getElementById('offreModal')) closeOffre();
 });
 
-// ── 9. GÉNÉRATEUR LO-FI WEB AUDIO API ────────────
-let ambPlaying = false;
-let audioCtx = null;
-let ambNodes = [];
+// ── 9. GÉNÉRATEUR AUDIO — Compatible Smart TV (Tizen / WebOS / Android TV)
+// ─────────────────────────────────────────────────────────────────────────
+// Stratégie : Web Audio API (desktop/mobile) → fallback HTML5 <audio> (TV)
+// Le Web Audio API est souvent indisponible ou suspendu sur TV sans geste utilisateur.
+// On tente Web Audio après un geste, sinon on bascule vers un <audio> HTML5 classique
+// qui est plus largement supporté sur Tizen/WebOS.
+// ─────────────────────────────────────────────────────────────────────────
 
+let ambPlaying  = false;
+let audioCtx    = null;
+let ambNodes    = [];
+let _ambHtml5   = null;   // élément <audio> fallback Smart TV
+
+// ── Fallback HTML5 Audio (compatible Tizen 5+, WebOS 4+, Android TV)
+function _createHtml5Amb(vol){
+  if(_ambHtml5){ _ambHtml5.remove(); _ambHtml5 = null; }
+  // Utiliser la piste sauvegardée en TV ou une URL par défaut sans CORS
+  const url = localStorage.getItem('integral_tv_url') || '';
+  // Sur TV on ne peut pas jouer un stream externe sans CORS → silence Web Audio
+  // On crée juste un oscillateur silencieux pour le visuel
+  const a = document.createElement('audio');
+  a.id = '_ambHtml5Audio';
+  a.loop = true;
+  a.volume = vol || 0.3;
+  a.style.display = 'none';
+  if(url && /\.(mp3|aac|ogg|m4a)(\?|$)/i.test(url)){
+    a.src = url;
+    a.play().catch(()=>{});
+  }
+  document.body.appendChild(a);
+  _ambHtml5 = a;
+  return a;
+}
+function _stopHtml5Amb(){
+  if(_ambHtml5){ _ambHtml5.pause(); _ambHtml5.remove(); _ambHtml5 = null; }
+}
+
+// ── Démarrer l'ambiance (détecte automatiquement la meilleure méthode)
 function createLofi() {
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const master = audioCtx.createGain();
-  master.gain.setValueAtTime(0, audioCtx.currentTime);
-  master.gain.linearRampToValueAtTime(0.32, audioCtx.currentTime + 2);
-  master.connect(audioCtx.destination);
-  ambNodes.push(master);
+  const vol = parseFloat(window._ambVol || 0.32);
 
-  // ── Auto-resume si l'AudioContext se suspend (comportement Chrome mobile) ──
-  audioCtx.onstatechange = () => {
-    if (audioCtx && audioCtx.state === 'suspended' && ambPlaying) {
-      audioCtx.resume().catch(() => {});
-    }
-  };
-  // Keepalive : vérifie toutes les 4s et relance si suspendu
-  const _keepAlive = setInterval(() => {
-    if (!ambPlaying) { clearInterval(_keepAlive); return; }
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume().catch(() => {});
-    }
-  }, 4000);
-  ambNodes._keepAlive = _keepAlive;
+  // Sur Tizen/WebOS : Web Audio API est souvent non fonctionnel
+  // On tente quand même, avec catch immédiat → fallback HTML5
+  const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+  if(!AudioCtxClass){
+    // Navigateur sans Web Audio (vieux Tizen) → mode silencieux uniquement visuel
+    console.warn('[Lofi] Web Audio non disponible — mode visuel uniquement');
+    return;
+  }
 
-  // Nettoyage périodique des nœuds terminés (évite la fuite mémoire longue durée)
-  const _cleanup = setInterval(() => {
-    if (!ambPlaying) { clearInterval(_cleanup); return; }
-    // On garde master (index 0) et les nœuds loopés ; on retire les terminés
-    for (let i = ambNodes.length - 1; i > 0; i--) {
-      const n = ambNodes[i];
-      if (n && n.playbackState !== undefined && n.playbackState === 3) {
-        ambNodes.splice(i, 1);
+  try {
+    audioCtx = new AudioCtxClass();
+    // Sur Smart TV l'état peut rester 'suspended' même après création
+    const _tryResume = () => {
+      if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(()=>{});
+    };
+    _tryResume();
+    // Retry résumé toutes les 2s pendant 10s (Tizen peut mettre du temps)
+    let _resumeTries = 0;
+    const _resumeRetry = setInterval(()=>{
+      _tryResume();
+      if(++_resumeTries >= 5 || (audioCtx && audioCtx.state === 'running')) clearInterval(_resumeRetry);
+    }, 2000);
+
+    const master = audioCtx.createGain();
+    master.gain.setValueAtTime(0, audioCtx.currentTime);
+    master.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + 2);
+    master.connect(audioCtx.destination);
+    ambNodes.push(master);
+    window._ambMaster = master;
+
+    audioCtx.onstatechange = () => {
+      if(audioCtx && audioCtx.state === 'suspended' && ambPlaying) audioCtx.resume().catch(()=>{});
+    };
+    const _keepAlive = setInterval(() => {
+      if(!ambPlaying){ clearInterval(_keepAlive); return; }
+      if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(()=>{});
+    }, 4000);
+    ambNodes._keepAlive = _keepAlive;
+
+    const _cleanup = setInterval(() => {
+      if(!ambPlaying){ clearInterval(_cleanup); return; }
+      for(let i = ambNodes.length - 1; i > 0; i--){
+        const n = ambNodes[i];
+        if(n && n.playbackState !== undefined && n.playbackState === 3) ambNodes.splice(i,1);
       }
+    }, 20000);
+    ambNodes._cleanup = _cleanup;
+
+    // ── Reverb léger
+    const makeReverb = (ctx) => {
+      try {
+        const conv = ctx.createConvolver();
+        const len  = ctx.sampleRate * 2;
+        const buf  = ctx.createBuffer(2, len, ctx.sampleRate);
+        for(let c=0;c<2;c++){ const d=buf.getChannelData(c); for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.5); }
+        conv.buffer = buf;
+        return conv;
+      } catch(e){ return null; }
+    };
+    const reverb = makeReverb(audioCtx);
+    if(reverb){
+      const rvGain = audioCtx.createGain(); rvGain.gain.value = 0.22;
+      reverb.connect(rvGain); rvGain.connect(master);
+      ambNodes.push(reverb, rvGain);
     }
-  }, 15000);
-  ambNodes._cleanup = _cleanup;
 
-  // ── Reverb (convolver simulé avec delay) ──
-  function makeReverb(ctx) {
-    const convolver = ctx.createConvolver();
-    const rate = ctx.sampleRate;
-    const length = rate * 2.5;
-    const impulse = ctx.createBuffer(2, length, rate);
-    for (let c = 0; c < 2; c++) {
-      const ch = impulse.getChannelData(c);
-      for (let i = 0; i < length; i++) {
-        ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 2.5);
-      }
-    }
-    convolver.buffer = impulse;
-    return convolver;
+    // ── Filtre passe-bas (chaleur vinyle)
+    const loPass = audioCtx.createBiquadFilter();
+    loPass.type = 'lowpass'; loPass.frequency.value = 3400; loPass.Q.value = 0.7;
+    loPass.connect(master);
+    if(reverb) loPass.connect(reverb);
+    ambNodes.push(loPass);
+
+    // ── Bruit vinyle
+    (()=>{
+      try {
+        const sz  = audioCtx.sampleRate * 3;
+        const buf = audioCtx.createBuffer(1, sz, audioCtx.sampleRate);
+        const d   = buf.getChannelData(0);
+        for(let i=0;i<sz;i++) d[i]=(Math.random()*2-1)*0.010;
+        const src = audioCtx.createBufferSource(); src.buffer=buf; src.loop=true;
+        const nf  = audioCtx.createBiquadFilter(); nf.type='bandpass'; nf.frequency.value=600; nf.Q.value=0.4;
+        src.connect(nf); nf.connect(master); src.start();
+        ambNodes.push(src, nf);
+      } catch(e){}
+    })();
+
+    // ── Piano lo-fi
+    const CHORDS = [[261.63,329.63,392.00,493.88],[220.00,277.18,329.63,415.30],[196.00,246.94,293.66,369.99],[174.61,220.00,261.63,329.63]];
+    let chordIdx = 0;
+    const playChord = ()=>{
+      if(!ambPlaying || !audioCtx) return;
+      const chord = CHORDS[chordIdx++ % CHORDS.length];
+      chord.forEach((freq,i)=>{
+        try {
+          const now = audioCtx.currentTime + i*0.04;
+          const osc = audioCtx.createOscillator(); osc.type='sine'; osc.frequency.value=freq;
+          const env = audioCtx.createGain();
+          env.gain.setValueAtTime(0,now); env.gain.linearRampToValueAtTime(0.08,now+0.08); env.gain.exponentialRampToValueAtTime(0.001,now+3.2);
+          osc.connect(env); env.connect(loPass); osc.start(now); osc.stop(now+3.5);
+          ambNodes.push(osc,env);
+        } catch(e){}
+      });
+      setTimeout(playChord, 3600 + Math.random()*800);
+    };
+
+    // ── Basse
+    const BASS=[65.41,55.00,49.00,43.65]; let bassIdx=0;
+    const playBass = ()=>{
+      if(!ambPlaying || !audioCtx) return;
+      try {
+        const now=audioCtx.currentTime;
+        const osc=audioCtx.createOscillator(); osc.type='sine'; osc.frequency.value=BASS[bassIdx++%BASS.length];
+        const env=audioCtx.createGain();
+        env.gain.setValueAtTime(0,now); env.gain.linearRampToValueAtTime(0.16,now+0.12); env.gain.exponentialRampToValueAtTime(0.001,now+1.8);
+        osc.connect(env); env.connect(master); osc.start(now); osc.stop(now+2);
+        ambNodes.push(osc,env);
+      } catch(e){}
+      setTimeout(playBass, 1800);
+    };
+
+    // ── Hi-hat
+    const playHihat = ()=>{
+      if(!ambPlaying || !audioCtx) return;
+      try {
+        const sz=Math.floor(audioCtx.sampleRate*0.05);
+        const buf=audioCtx.createBuffer(1,sz,audioCtx.sampleRate); const d=buf.getChannelData(0);
+        for(let i=0;i<sz;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/sz,3);
+        const src=audioCtx.createBufferSource(); src.buffer=buf;
+        const filt=audioCtx.createBiquadFilter(); filt.type='highpass'; filt.frequency.value=7000;
+        const hg=audioCtx.createGain(); hg.gain.value=0.05;
+        src.connect(filt); filt.connect(hg); hg.connect(master); src.start();
+        ambNodes.push(src,filt,hg);
+      } catch(e){}
+      setTimeout(playHihat, Math.random()>0.5?280:420);
+    };
+
+    setTimeout(playChord, 300);
+    setTimeout(playBass, 600);
+    setTimeout(playHihat, 100);
+
+  } catch(err){
+    console.warn('[Lofi] Web Audio échoué:', err.message, '→ fallback HTML5');
+    audioCtx = null;
+    _createHtml5Amb(vol);
   }
-
-  const reverb = makeReverb(audioCtx);
-  const reverbGain = audioCtx.createGain();
-  reverbGain.gain.value = 0.28;
-  reverb.connect(reverbGain);
-  reverbGain.connect(master);
-  ambNodes.push(reverb, reverbGain);
-
-  // ── Filtre passe-bas (chaleur vinyle) ──
-  const loPass = audioCtx.createBiquadFilter();
-  loPass.type = 'lowpass';
-  loPass.frequency.value = 3400;
-  loPass.Q.value = 0.7;
-  loPass.connect(master);
-  loPass.connect(reverb);
-  ambNodes.push(loPass);
-
-  // ── Bruit vinyle (craquements doux) ──
-  function makeVinylNoise() {
-    const bufSize = audioCtx.sampleRate * 3;
-    const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
-    const data = buf.getChannelData(0);
-    for (let i = 0; i < bufSize; i++) {
-      data[i] = (Math.random() * 2 - 1) * 0.012;
-    }
-    const src = audioCtx.createBufferSource();
-    src.buffer = buf;
-    src.loop = true;
-    const noiseFilter = audioCtx.createBiquadFilter();
-    noiseFilter.type = 'bandpass';
-    noiseFilter.frequency.value = 800;
-    noiseFilter.Q.value = 0.5;
-    src.connect(noiseFilter);
-    noiseFilter.connect(master);
-    src.start();
-    ambNodes.push(src, noiseFilter);
-  }
-  makeVinylNoise();
-
-  // ── Accord de piano lo-fi (notes + harmoniques) ──
-  const CHORDS = [
-    [261.63, 329.63, 392.00, 493.88],  // C maj7
-    [220.00, 277.18, 329.63, 415.30],  // Am7
-    [196.00, 246.94, 293.66, 369.99],  // G maj7
-    [174.61, 220.00, 261.63, 329.63],  // F maj7
-  ];
-
-  let chordIdx = 0;
-  function playChord() {
-    if (!ambPlaying) return;
-    const chord = CHORDS[chordIdx % CHORDS.length];
-    chordIdx++;
-
-    chord.forEach((freq, i) => {
-      const osc = audioCtx.createOscillator();
-      const env = audioCtx.createGain();
-      const now = audioCtx.currentTime + i * 0.04;
-
-      osc.type = 'sine';
-      osc.frequency.value = freq;
-
-      // Harmonique douce
-      const osc2 = audioCtx.createOscillator();
-      const env2 = audioCtx.createGain();
-      osc2.type = 'triangle';
-      osc2.frequency.value = freq * 2;
-      env2.gain.setValueAtTime(0, now);
-      env2.gain.linearRampToValueAtTime(0.025, now + 0.06);
-      env2.gain.exponentialRampToValueAtTime(0.001, now + 2.8);
-      osc2.connect(env2);
-      env2.connect(loPass);
-      osc2.start(now);
-      osc2.stop(now + 3);
-
-      env.gain.setValueAtTime(0, now);
-      env.gain.linearRampToValueAtTime(0.09, now + 0.08);
-      env.gain.exponentialRampToValueAtTime(0.001, now + 3.2);
-
-      osc.connect(env);
-      env.connect(loPass);
-      osc.start(now);
-      osc.stop(now + 3.5);
-      ambNodes.push(osc, env, osc2, env2);
-    });
-
-    setTimeout(playChord, 3600 + Math.random() * 800);
-  }
-
-  // ── Basse douce ──
-  const BASS = [65.41, 55.00, 49.00, 43.65]; // C G F A
-  let bassIdx = 0;
-  function playBass() {
-    if (!ambPlaying) return;
-    const freq = BASS[bassIdx % BASS.length];
-    bassIdx++;
-
-    const osc = audioCtx.createOscillator();
-    const env = audioCtx.createGain();
-    const now = audioCtx.currentTime;
-
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    env.gain.setValueAtTime(0, now);
-    env.gain.linearRampToValueAtTime(0.18, now + 0.12);
-    env.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
-
-    osc.connect(env);
-    env.connect(master);
-    osc.start(now);
-    osc.stop(now + 2);
-    ambNodes.push(osc, env);
-
-    setTimeout(playBass, 1800);
-  }
-
-  // ── Hi-hat lo-fi ──
-  function playHihat() {
-    if (!ambPlaying) return;
-    const bufSize = Math.floor(audioCtx.sampleRate * 0.05);
-    const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
-    const data = buf.getChannelData(0);
-    for (let i = 0; i < bufSize; i++) {
-      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufSize, 3);
-    }
-    const src = audioCtx.createBufferSource();
-    src.buffer = buf;
-    const filt = audioCtx.createBiquadFilter();
-    filt.type = 'highpass';
-    filt.frequency.value = 7000;
-    const hgain = audioCtx.createGain();
-    hgain.gain.value = 0.06;
-    src.connect(filt);
-    filt.connect(hgain);
-    hgain.connect(master);
-    src.start();
-    ambNodes.push(src, filt, hgain);
-
-    const swing = Math.random() > 0.5 ? 280 : 420;
-    setTimeout(playHihat, swing);
-  }
-
-  // Démarrage décalé pour fluidité
-  setTimeout(playChord, 300);
-  setTimeout(playBass, 600);
-  setTimeout(playHihat, 100);
 }
 
 function stopLofi() {
-  if (!audioCtx) return;
-  // Nettoyer les intervalles de keepalive
-  if (ambNodes._keepAlive) clearInterval(ambNodes._keepAlive);
-  if (ambNodes._cleanup)   clearInterval(ambNodes._cleanup);
+  _stopHtml5Amb();
+  if(!audioCtx) return;
+  if(ambNodes._keepAlive) clearInterval(ambNodes._keepAlive);
+  if(ambNodes._cleanup)   clearInterval(ambNodes._cleanup);
   const master = ambNodes[0];
-  if (master && master.gain) {
-    master.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.2);
-  }
-  setTimeout(() => {
-    ambNodes.forEach(n => { try { n.disconnect(); n.stop && n.stop(); } catch(e){} });
+  if(master && master.gain) master.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.0);
+  setTimeout(()=>{
+    ambNodes.forEach(n=>{ try{ n.disconnect(); n.stop&&n.stop(); }catch(e){} });
     ambNodes = [];
-    audioCtx.close();
-    audioCtx = null;
-  }, 1400);
+    if(audioCtx){ audioCtx.close().catch(()=>{}); audioCtx = null; }
+  }, 1200);
 }
 
 function toggleAmb() {
   const btn  = document.getElementById('ambBtn');
   const icon = document.getElementById('ambIcon');
-  if (!ambPlaying) {
-    ambPlaying = true;
-    createLofi();
-    btn.classList.add('playing');
-    icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-    showToast('🎵 Ambiance lo-fi activée', 'gold');
+  if(!ambPlaying){
+    const doStart = () => {
+      ambPlaying = true;
+      window._ambPlaying = true;
+      createLofi();
+      if(btn) btn.classList.add('playing');
+      if(icon) icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+      showToast('🎵 Ambiance lo-fi activée', 'gold');
+    };
+    // Smart TV : s'assurer d'un geste utilisateur avant Web Audio
+    if((window.TV_ENV||{}).likelySmart && !window._audioUnlocked){
+      if(window._showAudioUnlock) window._showAudioUnlock(ok=>{ if(ok) doStart(); });
+      else doStart();
+    } else {
+      doStart();
+    }
   } else {
     ambPlaying = false;
+    window._ambPlaying = false;
     stopLofi();
-    btn.classList.remove('playing');
-    icon.innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>';
+    if(btn) btn.classList.remove('playing');
+    if(icon) icon.innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>';
   }
 }
 
@@ -5100,32 +5405,31 @@ const DEMO = {
   // ──────────────────────────────────────────────
   // NARRATION TTS
   speak(text) {
-    if(!this.synth) return;
-    this.synth.cancel();
-    const utt  = new SpeechSynthesisUtterance(text);
-    utt.lang   = 'fr-FR';
-    utt.rate   = 0.88;   // plus posé, élégant
-    utt.pitch  = 1.12;   // légèrement plus aigu = douceur féminine
-    utt.volume = this.volGain;
-    if(this.voice) utt.voice = this.voice;
-
-    // Afficher dans la barre démo (non-obstructif)
     const inline = document.getElementById('demoNarrationInline');
     const wave   = document.getElementById('demoWave');
+    // Toujours afficher le texte (TV ou non)
     if(inline) inline.innerHTML = text.replace(/Intégral|Integral/gi, '<strong>$&</strong>');
     if(wave)   wave.style.opacity = '1';
 
-    utt.onend = () => {
-      clearInterval(this._kaInterval);
-      if(wave) setTimeout(() => { wave.style.opacity = '0'; }, 1500);
-    };
-    utt.onerror = (e) => {
-      clearInterval(this._kaInterval);
-      console.warn('TTS error:', e.error);
-      if(wave) setTimeout(() => { wave.style.opacity = '0'; }, 3000);
-    };
-
-    try { this.synth.speak(utt); } catch(e) { console.warn('speak failed', e); }
+    if(!this.synth || !this.ttsEnabled) {
+      setTimeout(() => { if(wave) wave.style.opacity = '0'; }, 8000);
+      return;
+    }
+    try {
+      this.synth.cancel();
+      const utt  = new SpeechSynthesisUtterance(text);
+      utt.lang   = 'fr-FR';
+      utt.rate   = 0.88;
+      utt.pitch  = 1.12;
+      utt.volume = this.volGain;
+      if(this.voice) utt.voice = this.voice;
+      utt.onend  = () => { clearInterval(this._kaInterval); if(wave) setTimeout(()=>{ wave.style.opacity='0'; }, 1500); };
+      utt.onerror= (e) => { clearInterval(this._kaInterval); console.warn('TTS error:', e.error); if(wave) setTimeout(()=>{ wave.style.opacity='0'; }, 3000); };
+      this.synth.speak(utt);
+    } catch(e) {
+      console.warn('[TTS] speak() failed:', e.message);
+      if(wave) setTimeout(()=>{ wave.style.opacity='0'; }, 8000);
+    }
   },
 
   // ──────────────────────────────────────────────
@@ -5334,23 +5638,346 @@ const DEMO = {
   },
 
   showEndScreen() {
-    // Petit toast de fin
-    if(typeof showToast === 'function') {
-      showToast('Démonstration terminée — Merci de votre visite ! 🙏', 'gold');
-    }
     // Revenir en haut
     window.scrollTo({top: 0, behavior:'smooth'});
-    // Proposer de recommencer après 5s
-    setTimeout(() => {
-      if(!this.playing || this.elapsed >= this.totalTime - 1) {
-        document.getElementById('demoCTA').style.display = 'flex';
-      }
-    }, 5000);
+    this.playing = false;
+    cancelAnimationFrame(this.raf);
+    if(this.synth) this.synth.cancel();
+    // Lancer l'interlude vidéo puis reboucler
+    setTimeout(() => playInterlude(), 1200);
   },
 };
 
+// ══════════════════════════════════════════════════════
+//  INTERLUDE VIDÉO — entre chaque répétition de la démo
+//  Clip Zouk Love plein écran, puis relance automatique
+// ══════════════════════════════════════════════════════
+
+// ── CSS
+(function injectInterludeCSS(){
+  const s = document.createElement('style');
+  s.textContent = `
+  #interludeOverlay {
+    position: fixed; inset: 0; z-index: 9600;
+    background: linear-gradient(145deg, #040e07 0%, #081508 50%, #050c07 100%);
+    display: none; flex-direction: column;
+    align-items: center; justify-content: center;
+    animation: interludeFadeIn .6s ease;
+    overflow: hidden;
+  }
+  #interludeOverlay.show { display: flex; }
+  @keyframes interludeFadeIn { from{opacity:0} to{opacity:1} }
+
+  #interludeOverlay iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: none; display: block;
+  }
+
+  /* Fond animé quand pas de vidéo */
+  .interlude-bg-rings {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .interlude-bg-ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,.06);
+    animation: iRingPulse 5s ease-in-out infinite;
+  }
+  .interlude-bg-ring:nth-child(1){ width:260px;height:260px;animation-delay:0s; }
+  .interlude-bg-ring:nth-child(2){ width:460px;height:460px;animation-delay:1s; }
+  .interlude-bg-ring:nth-child(3){ width:680px;height:680px;animation-delay:2s; }
+  .interlude-bg-ring:nth-child(4){ width:900px;height:900px;animation-delay:3s; }
+  @keyframes iRingPulse {
+    0%,100%{ opacity:.06;transform:scale(1); }
+    50%    { opacity:.18;transform:scale(1.05); }
+  }
+  /* Lueur centrale verte */
+  .interlude-bg-glow {
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(ellipse,rgba(26,107,60,.15) 0%,transparent 70%);
+    pointer-events: none;
+    animation: iGlowBreath 4s ease-in-out infinite;
+  }
+  @keyframes iGlowBreath {
+    0%,100%{ transform:scale(1);opacity:.7; }
+    50%    { transform:scale(1.2);opacity:1; }
+  }
+  /* Logo centré (no-video mode) */
+  .interlude-center-info {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    text-align: center;
+    transition: opacity .4s ease;
+  }
+  .interlude-center-info.hidden { opacity: 0; pointer-events: none; }
+  .interlude-center-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem,4vw,2.6rem);
+    font-weight: 300; letter-spacing: 6px; text-transform: uppercase;
+    color: #fff; margin-bottom: 4px;
+  }
+  .interlude-center-logo span { color: var(--gold); font-style: italic; font-weight: 600; }
+  .interlude-center-sub {
+    font-size: clamp(.6rem,1.4vw,.72rem); letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,.3); margin-bottom: 28px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .interlude-no-video-hint {
+    background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2);
+    border-radius: 12px; padding: 14px 22px;
+    font-family: 'DM Sans', sans-serif; font-size: clamp(.7rem,1.4vw,.82rem);
+    color: rgba(255,255,255,.55); line-height: 1.7; text-align: center;
+    max-width: 380px;
+  }
+  .interlude-no-video-hint strong { color: var(--gold); }
+
+  /* HUD : barre dorée supérieure */
+  .interlude-hud {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+    background: linear-gradient(180deg,rgba(0,0,0,.85) 0%,transparent 100%);
+    padding: 18px 24px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    pointer-events: none;
+  }
+  .interlude-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem,2.5vw,1.4rem);
+    color: #fff; font-weight: 300; letter-spacing: 4px; text-transform: uppercase;
+  }
+  .interlude-brand span { color: var(--gold); font-style: italic; font-weight: 600; }
+
+  /* Compte à rebours */
+  .interlude-countdown-wrap {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgba(255,255,255,.7); font-size: clamp(.7rem,1.5vw,.85rem);
+    letter-spacing: 1px;
+  }
+  .interlude-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem,3vw,1.9rem);
+    color: var(--gold); font-weight: 600; line-height: 1;
+    min-width: 38px; text-align: right;
+  }
+
+  /* Bas : CTA skip */
+  .interlude-footer {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    background: linear-gradient(0deg,rgba(0,0,0,.82) 0%,transparent 100%);
+    padding: 40px 24px 20px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+  }
+  .interlude-replay-btn {
+    background: rgba(26,107,60,.85); border: 1.5px solid rgba(201,168,76,.35);
+    color: #fff; border-radius: 30px; padding: 11px 26px;
+    font-size: clamp(.78rem,1.6vw,.9rem); font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    backdrop-filter: blur(10px); transition: .2s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .interlude-replay-btn:hover { background: var(--g); transform: scale(1.04); }
+  .interlude-skip-btn {
+    background: none; border: none; color: rgba(255,255,255,.4);
+    font-size: clamp(.68rem,1.3vw,.78rem); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; letter-spacing: .5px;
+    transition: .2s; padding: 8px;
+  }
+  .interlude-skip-btn:hover { color: rgba(255,255,255,.75); }
+
+  /* Barre de progression du compte à rebours */
+  .interlude-progress-bar {
+    position: absolute; bottom: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--g), var(--gold));
+    transition: width 1s linear;
+    box-shadow: 0 0 12px rgba(201,168,76,.5);
+  }
+
+  /* Smart TV : plus grand */
+  .smart-tv .interlude-replay-btn { padding: 16px 38px; font-size: 1.1rem; }
+  .smart-tv .interlude-brand      { font-size: 1.6rem; }
+  `;
+  document.head.appendChild(s);
+})();
+
+// ── HTML
+(function injectInterludeHTML(){
+  const el = document.createElement('div');
+  el.id = 'interludeOverlay';
+  el.innerHTML = `
+    <div class="interlude-bg-rings">
+      <div class="interlude-bg-ring"></div>
+      <div class="interlude-bg-ring"></div>
+      <div class="interlude-bg-ring"></div>
+      <div class="interlude-bg-ring"></div>
+    </div>
+    <div class="interlude-bg-glow"></div>
+    <div class="interlude-center-info" id="interludeCenterInfo">
+      <div class="interlude-center-logo">Intégral <span>Restaurant</span></div>
+      <div class="interlude-center-sub">Bar &amp; Café · Cissin, Ouagadougou</div>
+      <div class="interlude-no-video-hint" id="interludeNoVideoHint">
+        🎬 <strong>Configurer un clip vidéo</strong><br>
+        Ouvrez la <strong>TV Intégral</strong> (bouton 📺) et collez<br>
+        un lien YouTube pour l'afficher ici.
+      </div>
+    </div>
+    <div class="interlude-hud">
+      <div class="interlude-brand">Intégral <span>Restaurant</span></div>
+      <div class="interlude-countdown-wrap">
+        <span>Reprise dans</span>
+        <span class="interlude-count" id="interludeCount">60</span>
+        <span>s</span>
+      </div>
+    </div>
+    <div class="interlude-footer">
+      <button class="interlude-skip-btn" id="interludeSkipBtn">Passer →</button>
+      <button class="interlude-replay-btn" id="interludeReplayBtn">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Lancer la démo
+      </button>
+    </div>
+    <div class="interlude-progress-bar" id="interludeProgressBar" style="width:100%"></div>
+  `;
+  document.body.appendChild(el);
+})();
+
+// ── Logique interlude
+let _interludeTimer   = null;
+let _interludeClipIdx = 0;
+
+function playInterlude() {
+  const overlay = document.getElementById('interludeOverlay');
+  if (!overlay) { launchDemoLoop(); return; }
+
+  // Utiliser l'URL sauvegardée par l'utilisateur dans la TV
+  const savedUrl = localStorage.getItem('integral_tv_url') || window._tvSavedUrl;
+
+  // Préparer l'iframe si une URL est disponible
+  const existingIframe = overlay.querySelector('iframe');
+  if (existingIframe) existingIframe.remove();
+
+  if (savedUrl) {
+    // Extraire l'ID YouTube si c'est un lien YouTube
+    const ytMatch = savedUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/live\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);
+    const ytList  = savedUrl.match(/[?&]list=([A-Za-z0-9_-]+)/);
+
+    if (ytMatch || ytList) {
+      const iframe = document.createElement('iframe');
+      let src = 'https://www.youtube-nocookie.com/embed/';
+      if (ytMatch) {
+        src += ytMatch[1];
+        src += '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        if (ytList) src += '&list=' + ytList[1];
+      } else {
+        src += '?autoplay=1&rel=0&modestbranding=1&playsinline=1&list=' + ytList[1] + '&listType=playlist';
+      }
+      iframe.src = src;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      overlay.insertBefore(iframe, overlay.firstChild);
+    }
+  }
+
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+
+  // Afficher/masquer le centre selon présence de vidéo
+  const centerInfo = document.getElementById('interludeCenterInfo');
+  const noVideoHint = document.getElementById('interludeNoVideoHint');
+  if (centerInfo) {
+    const hasVideo = !!overlay.querySelector('iframe');
+    centerInfo.classList.toggle('hidden', hasVideo);
+    if (noVideoHint) noVideoHint.style.display = hasVideo ? 'none' : 'block';
+  }
+
+  // Compte à rebours
+  let remaining = CONFIG.interludeDuration || 60;
+  const countEl  = document.getElementById('interludeCount');
+  const barEl    = document.getElementById('interludeProgressBar');
+  if (countEl) countEl.textContent = remaining;
+  if (barEl)   barEl.style.width = '100%';
+
+  clearInterval(_interludeTimer);
+  _interludeTimer = setInterval(() => {
+    remaining--;
+    if (countEl) countEl.textContent = remaining;
+    const pct = (remaining / (CONFIG.interludeDuration || 45)) * 100;
+    if (barEl) barEl.style.width = pct + '%';
+    if (remaining <= 0) {
+      clearInterval(_interludeTimer);
+      closeInterlude(true);
+    }
+  }, 1000);
+
+  // Boutons
+  document.getElementById('interludeReplayBtn').onclick = () => closeInterlude(true);
+  document.getElementById('interludeSkipBtn').onclick   = () => closeInterlude(false);
+}
+
+function closeInterlude(restart) {
+  clearInterval(_interludeTimer);
+  const overlay = document.getElementById('interludeOverlay');
+  if (overlay) {
+    overlay.classList.remove('show');
+    const iframe = overlay.querySelector('iframe');
+    if (iframe) iframe.remove();
+  }
+  document.body.style.overflow = '';
+  if (restart) {
+    setTimeout(launchDemoLoop, 400);
+  } else {
+    // Affiche l'écran CTA
+    const cta = document.getElementById('demoCTA');
+    if (cta) cta.style.display = 'flex';
+  }
+}
+
+function launchDemoLoop() {
+  // Reset complet et relance de la démo
+  if (window.DEMO) {
+    if (DEMO.synth) DEMO.synth.cancel();
+    cancelAnimationFrame(DEMO.raf);
+    DEMO.playing    = false;
+    DEMO.paused     = false;
+    DEMO.elapsed    = 0;
+    DEMO.lastTs     = null;
+    DEMO.currentChapter = -1;
+    DEMO.actionsDone.clear();
+  }
+  // Masquer CTA et lancer directement (sans overlay unlock à chaque boucle)
+  const cta = document.getElementById('demoCTA');
+  if (cta) cta.style.display = 'none';
+  if (DEMO.ttsEnabled !== false) {
+    DEMO.unlockTTS();
+  }
+  setTimeout(() => {
+    DEMO.playing = true;
+    DEMO.paused  = false;
+    document.getElementById('demoBar').classList.add('visible');
+    document.getElementById('demoPlayIcon').innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    DEMO.raf = requestAnimationFrame(t => DEMO.tick(t));
+    DEMO.runChapterAt(0);
+  }, 300);
+}
+
 // ── FONCTIONS GLOBALES pour les boutons HTML
-function startDemo()    { DEMO.start(); }
+function startDemo() {
+  const tvenv = window.TV_ENV || {};
+  if(tvenv.likelySmart || !tvenv.ttsSupported){
+    if(window._showAudioUnlock){
+      window._showAudioUnlock(withSound => {
+        DEMO.ttsEnabled = withSound ? !!(tvenv.ttsSupported) : false;
+        DEMO.start();
+      });
+    } else {
+      DEMO.ttsEnabled = false;
+      DEMO.start();
+    }
+  } else {
+    DEMO.start();
+  }
+}
 function skipToSite()   { document.getElementById('demoCTA').style.display='none'; document.getElementById('demoBar').classList.add('visible'); }
 function demoTogglePlay() { if(!DEMO.playing && !DEMO.paused) DEMO.start(); else DEMO.togglePlay(); }
 function demoRestart()   { DEMO.restart(); }
@@ -5371,6 +5998,14 @@ window.addEventListener('load', () => {
     const dot  = document.getElementById('ttsStatusDot');
     const text = document.getElementById('ttsStatusText');
     if(!dot || !text) return;
+
+    // Avertissement Smart TV
+    if((window.TV_ENV||{}).likelySmart){
+      dot.style.background = '#f59e0b';
+      text.textContent = 'Smart TV détectée — appuyez sur ▶ pour activer le son';
+      return;
+    }
+
     if(!('speechSynthesis' in window)){
       dot.style.background = '#ef4444';
       text.textContent = 'Audio non disponible — texte seul';
@@ -5531,6 +6166,12 @@ window.addEventListener('load', () => {
     font-size: .6rem; letter-spacing: 3px; text-transform: uppercase;
     color: rgba(255,255,255,.12); font-family: 'DM Sans', sans-serif;
   }
+
+  /* Smart TV : tailles agrandies */
+  .smart-tv .attract-logo    { font-size: clamp(3rem,6vw,5.5rem); }
+  .smart-tv .attract-clock   { font-size: clamp(5rem,10vw,8rem); }
+  .smart-tv .attract-cta-text { font-size: clamp(.8rem,1.8vw,.98rem); letter-spacing: 5px; }
+  .smart-tv .attract-touch-icon { width: 90px; height: 90px; font-size: 2.5rem; }
   `;
   document.head.appendChild(style);
 
@@ -5644,28 +6285,7 @@ window.addEventListener('load', () => {
   resetIdle();
 })();
 
-// ══ SERVICE WORKER — enregistrement + nettoyage anciens SW ══
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    try {
-      // 1. Désinscrire tous les anciens SW (ex: savoir-plus-v1)
-      const regs = await navigator.serviceWorker.getRegistrations();
-      for (const reg of regs) {
-        const swURL = reg.active?.scriptURL || reg.installing?.scriptURL || '';
-        // Si c'est un ancien SW non-integral, le supprimer
-        if (!swURL.includes('sw.js') || swURL.includes('savoir-plus')) {
-          await reg.unregister();
-          console.log('[Integral] Ancien SW supprimé:', swURL);
-        }
-      }
-      // 2. Enregistrer le SW du restaurant
-      const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-      console.log('[Integral] SW enregistré:', reg.scope);
-    } catch(e) {
-      console.warn('[Integral] SW non disponible:', e.message);
-    }
-  });
-}
+// Service Worker désactivé (fichier sw.js non présent)
 
 // Test audio depuis l'écran CTA
 function demoTestAudio(){
@@ -5767,17 +6387,19 @@ body { padding-bottom: 48px; }
 <style>
 /* Bouton TV flottant */
 .tv-fab {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 10000;
-  width: 52px;
-  height: 52px;
+  position: fixed !important;
+  bottom: 120px !important;
+  left: 22px !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 9000;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1a6b3c, #145230);
   border: 2px solid #C9A84C;
   color: #fff;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5799,7 +6421,8 @@ body { padding-bottom: 48px; }
 .tv-fab::after {
   content: "TV en direct";
   position: absolute;
-  right: 62px;
+  left: 58px;
+  right: auto;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.8);
@@ -5960,15 +6583,17 @@ body { padding-bottom: 48px; }
 
       <!-- Écran de configuration (affiché par défaut) -->
       <div class="tv-setup-screen" id="tvSetup">
-        <div class="tv-big-icon">📡</div>
-        <h3>Configurer votre chaîne TV</h3>
-        <p>Collez un lien YouTube, une vidéo MP4 ou un flux stream IPTV pour lancer la TV directement dans la borne.</p>
+        <div class="tv-big-icon">📺</div>
+        <h3>Collez un lien YouTube</h3>
+        <p>Ouvrez YouTube sur votre téléphone, copiez le lien d'une vidéo ou d'un mix Zouk Love, et collez-le ici.</p>
         <input class="tv-url-input" id="tvUrlInput" type="text"
-          placeholder="https://icecast.radiofrance.fr/fip-jazz-midfi.mp3"
+          placeholder="https://www.youtube.com/watch?v=..."
           onkeydown="if(event.key==='Enter') launchTV()"/>
-        <button class="tv-launch-btn" onclick="launchTV()">▶ Lancer la TV</button>
+        <button class="tv-launch-btn" onclick="launchTV()">▶ Lancer</button>
         <div class="tv-hints">
-          💡 Exemples : YouTube Live · Chaîne sport · Vidéo musicale en boucle
+          💡 <strong>Comment trouver le lien ?</strong><br>
+          YouTube → video Zouk Love → Partager → Copier le lien<br><br>
+          ✅ Fonctionne avec : YouTube · MP4 · Stream audio
         </div>
       </div>
 
@@ -5979,23 +6604,25 @@ body { padding-bottom: 48px; }
 <script>
 function openTV() {
   document.getElementById('tvModal').classList.add('open');
-  // Auto-lancer le stream si pas déjà actif
-  if (!document.getElementById('tvPlayerWrap').querySelector('iframe, video')) {
-    window._tvSavedUrl = 'https://icecast.radiofrance.fr/fip-jazz-midfi.mp3';
-    document.getElementById('tvUrlInput').value = window._tvSavedUrl;
-    playTV(window._tvSavedUrl);
+  // Récupérer l'URL sauvegardée en localStorage
+  const saved = localStorage.getItem('integral_tv_url');
+  if (saved) {
+    window._tvSavedUrl = saved;
+    document.getElementById('tvUrlInput').value = saved;
+  }
+  // Auto-lancer seulement si une URL est déjà sauvegardée
+  if (saved && !document.getElementById('tvPlayerWrap').querySelector('iframe, video, .tv-audio-player')) {
+    playTV(saved);
   }
 }
 
 function closeTV() {
   document.getElementById('tvModal').classList.remove('open');
-  // Stopper la vidéo
   const wrap = document.getElementById('tvPlayerWrap');
-  const frame = wrap.querySelector('iframe, video');
-  if (frame) frame.remove();
-  // Réafficher setup si pas de lien sauvegardé
+  if (wrap) wrap.querySelectorAll('iframe, video, .tv-audio-player').forEach(el => el.remove());
   if (!window._tvSavedUrl) {
-    document.getElementById('tvSetup').style.display = 'flex';
+    const setup = document.getElementById('tvSetup');
+    if (setup) setup.style.display = 'flex';
   }
 }
 
@@ -6003,37 +6630,59 @@ function launchTV() {
   const raw = document.getElementById('tvUrlInput').value.trim();
   if (!raw) return;
   window._tvSavedUrl = raw;
+  localStorage.setItem('integral_tv_url', raw);  // persistance
   playTV(raw);
 }
 
 function playTV(url) {
   const wrap = document.getElementById('tvPlayerWrap');
-  document.getElementById('tvSetup').style.display = 'none';
+  if (!wrap) return;
+  const setup = document.getElementById('tvSetup');
+  if (setup) setup.style.display = 'none';
   wrap.querySelectorAll('iframe, video, .tv-audio-player').forEach(el => el.remove());
 
-  // YouTube
-  const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/live\/)([A-Za-z0-9_-]{11})/);
-  if (ytMatch) {
+  // ── YouTube (watch?v=, youtu.be, /live/, /shorts/, playlist)
+  const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/live\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);
+  const ytList  = url.match(/[?&]list=([A-Za-z0-9_-]+)/);
+
+  if (ytMatch || ytList) {
     const el = document.createElement('iframe');
-    el.src = `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0`;
-    el.allow = 'autoplay; fullscreen';
+    // youtube-nocookie.com = moins de restrictions d'embed que youtube.com
+    let src = 'https://www.youtube-nocookie.com/embed/';
+    if (ytMatch) {
+      src += ytMatch[1];
+      src += '?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=0';
+      if (ytList) src += '&list=' + ytList[1];
+    } else if (ytList) {
+      // Playlist sans video ID
+      src += '?autoplay=1&rel=0&modestbranding=1&playsinline=1&list=' + ytList[1] + '&listType=playlist';
+    }
+    el.src = src;
+    el.allow = 'autoplay; fullscreen; picture-in-picture';
     el.allowFullscreen = true;
+    el.style.cssText = 'width:100%;height:100%;border:none;display:block;';
     wrap.appendChild(el);
+
+    // Détection "vidéo non disponible" : réafficher setup après 5s si iframe vide
+    setTimeout(() => {
+      if (!wrap.querySelector('iframe')) return;
+      // L'iframe existe, on considère OK
+    }, 5000);
     return;
   }
 
-  // MP4 / m3u8 vidéo
+  // ── MP4 / WebM / M3U8
   if (/\.(mp4|webm|ogg|m3u8)(\?|$)/i.test(url)) {
     const el = document.createElement('video');
     el.src = url;
     el.controls = true;
     el.autoplay = true;
-    el.style.background = '#000';
+    el.style.cssText = 'width:100%;height:100%;background:#000;display:block;';
     wrap.appendChild(el);
     return;
   }
 
-  // Stream audio (MP3 / AAC / icecast)
+  // ── Stream audio (MP3 / AAC / Icecast)
   const player = document.createElement('div');
   player.className = 'tv-audio-player';
   player.innerHTML = `
@@ -6044,8 +6693,8 @@ function playTV(url) {
       <div class="tvap-logo">🎷</div>
     </div>
     <div class="tvap-info">
-      <div class="tvap-title">Smooth Jazz Radio</div>
-      <div class="tvap-sub">RelaxingJazz.com · 24/7 · Commercial-free</div>
+      <div class="tvap-title">Radio Musicale</div>
+      <div class="tvap-sub">Lecture en cours…</div>
     </div>
     <audio id="tvAudio" autoplay>
       <source src="${url}" type="audio/mpeg">
@@ -6061,17 +6710,15 @@ function playTV(url) {
   `;
   wrap.appendChild(player);
 
-  // Démarrer et configurer la reconnexion automatique
   setTimeout(() => {
     const a = document.getElementById('tvAudio');
     if (!a) return;
     a.volume = 0.8;
     a.play().catch(() => {});
-
-    // Reconnexion auto si le stream se coupe
+    let _failCount = 0;
     let _reconnectTimer = null;
     const reconnect = () => {
-      if (!document.getElementById('tvAudio')) return; // player fermé
+      if (!document.getElementById('tvAudio')) return;
       const btn = document.getElementById('tvPlayPause');
       if (btn) btn.textContent = '↻';
       const src = a.src || url;
@@ -6082,37 +6729,11 @@ function playTV(url) {
         a.play().then(() => { if (btn) btn.textContent = '⏸'; }).catch(() => {});
       }, 2000);
     };
-
-    a.addEventListener('error',   () => { clearTimeout(_reconnectTimer); _reconnectTimer = setTimeout(reconnect, 3000); });
+    a.addEventListener('error',   () => { _failCount++; clearTimeout(_reconnectTimer); if(_failCount < 3) _reconnectTimer = setTimeout(reconnect, 3000); else { document.getElementById('tvSetup').style.display='flex'; showToast('Stream audio indisponible','red'); } });
     a.addEventListener('stalled', () => { clearTimeout(_reconnectTimer); _reconnectTimer = setTimeout(reconnect, 8000); });
-    a.addEventListener('ended',   () => { reconnect(); });
-
-    // Si le stream échoue 2 fois → basculer sur YouTube Jazz en fallback
-    let _failCount = 0;
-    const _origReconnect = reconnect;
-    a.addEventListener('error', () => {
-      _failCount++;
-      if (_failCount >= 2) {
-        // Fallback YouTube Jazz 24/7
-        const wrap2 = document.getElementById('tvPlayerWrap');
-        if (wrap2) {
-          wrap2.querySelectorAll('audio, .tv-audio-player').forEach(el => el.remove());
-          const iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube.com/embed/neV3EPgvZ3g?autoplay=1&rel=0';
-          iframe.allow = 'autoplay; fullscreen';
-          iframe.allowFullscreen = true;
-          wrap2.appendChild(iframe);
-        }
-      }
-    }, { once: false });
-    a.addEventListener('pause',   () => {
-      const btn = document.getElementById('tvPlayPause');
-      if (btn) btn.textContent = '▶';
-    });
-    a.addEventListener('play', () => {
-      const btn = document.getElementById('tvPlayPause');
-      if (btn) btn.textContent = '⏸';
-    });
+    a.addEventListener('ended',   reconnect);
+    a.addEventListener('pause',   () => { const btn=document.getElementById('tvPlayPause'); if(btn) btn.textContent='▶'; });
+    a.addEventListener('play',    () => { const btn=document.getElementById('tvPlayPause'); if(btn) btn.textContent='⏸'; });
   }, 300);
 }
 
@@ -6231,6 +6852,482 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTV(); }
   cursor: pointer;
 }
 </style>
+
+<!-- ══════════════════════════════════════════════════════════
+     TABLEAU DE BORD TV — MOTEUR TEMPS RÉEL
+══════════════════════════════════════════════════════════ -->
+<style>
+/* Flash Message overlay */
+#tvFlashOverlay {
+  position: fixed; inset: 0; z-index: 19000;
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+}
+#tvFlashOverlay.show { display: flex; }
+.tvf-box {
+  max-width: 560px; width: 90%; border-radius: 24px;
+  padding: 42px 36px; text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,.5);
+  animation: modalIn .35s cubic-bezier(.4,0,.2,1);
+  position: relative; overflow: hidden;
+}
+.tvf-box::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+}
+.tvf-info    { background: linear-gradient(145deg,#0d2a3a,#0a1e28); border: 1px solid rgba(59,130,246,.3); }
+.tvf-info::before { background: #3b82f6; }
+.tvf-promo   { background: linear-gradient(145deg,#1a2e0a,#0d1f06); border: 1px solid rgba(26,107,60,.4); }
+.tvf-promo::before { background: linear-gradient(90deg,var(--g),var(--gold)); }
+.tvf-urgent  { background: linear-gradient(145deg,#2a0d0d,#1e0808); border: 1px solid rgba(229,57,53,.4); }
+.tvf-urgent::before { background: #e53935; }
+.tvf-closed  { background: linear-gradient(145deg,#1a1a2e,#0f0f1e); border: 1px solid rgba(160,120,48,.3); }
+.tvf-closed::before { background: var(--gold); }
+.tvf-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
+.tvf-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem,4vw,2.2rem); font-weight: 700; color: #fff; margin-bottom: 10px; }
+.tvf-body  { font-size: clamp(.85rem,2vw,1rem); color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 24px; }
+.tvf-bar   { height: 4px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; margin-top: 20px; }
+.tvf-bar-fill { height: 100%; background: rgba(255,255,255,.4); border-radius: 4px; transition: width 1s linear; }
+.tvf-close { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,.08); border: none; color: rgba(255,255,255,.5); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: .2s; }
+.tvf-close:hover { background: rgba(255,255,255,.18); color: #fff; }
+
+/* TV Clips list item */
+.tv-clip-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; transition: var(--t);
+}
+.tv-clip-item:hover { border-color: var(--g); }
+.tv-clip-thumb { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg,#e53935,#c62828); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.tv-clip-info  { flex: 1; min-width: 0; }
+.tv-clip-name  { font-size: .82rem; font-weight: 600; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv-clip-url   { font-size: .68rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv-clip-btns  { display: flex; gap: 4px; flex-shrink: 0; }
+.tv-clip-btn   { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; font-size: .7rem; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: var(--t); }
+.tv-clip-btn.play  { color: var(--g); } .tv-clip-btn.play:hover  { background: var(--g); color: #fff; border-color: var(--g); }
+.tv-clip-btn.del   { color: var(--red); } .tv-clip-btn.del:hover   { background: var(--red); color: #fff; border-color: var(--red); }
+
+/* Ticker msg item */
+.ticker-msg-item {
+  display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; transition: var(--t);
+}
+.ticker-msg-item:hover { border-color: var(--g); }
+.ticker-msg-emoji { font-size: 1.15rem; flex-shrink: 0; }
+.ticker-msg-text  { flex: 1; font-size: .82rem; color: var(--dark); cursor: pointer; }
+.ticker-msg-del   { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1rem; padding: 2px 6px; border-radius: 4px; transition: .2s; }
+.ticker-msg-del:hover { color: var(--red); background: var(--red2); }
+</style>
+
+<!-- Flash Overlay -->
+<div id="tvFlashOverlay">
+  <div class="tvf-box" id="tvFlashBox">
+    <button class="tvf-close" onclick="tvDismissFlash()">✕</button>
+    <span class="tvf-icon" id="tvFlashIcon">ℹ️</span>
+    <div class="tvf-title" id="tvFlashTitle">Message</div>
+    <div class="tvf-body"  id="tvFlashBody">Contenu</div>
+    <div class="tvf-bar"><div class="tvf-bar-fill" id="tvFlashBarFill" style="width:100%"></div></div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════
+//  TV DASHBOARD ENGINE — Tableau de bord temps réel
+// ══════════════════════════════════════════════════════════
+
+// ── Données persistées en localStorage
+const TV_STORE_KEY = 'integral_tv_dashboard';
+
+function tvLoad(){
+  try { return JSON.parse(localStorage.getItem(TV_STORE_KEY) || '{}'); } catch(e){ return {}; }
+}
+function tvSave(data){
+  localStorage.setItem(TV_STORE_KEY, JSON.stringify(data));
+  // Diffuser aux autres onglets / même fenêtre
+  window.dispatchEvent(new CustomEvent('borneUpdate', { detail: data }));
+}
+function tvGet(key, def){ return tvLoad()[key] !== undefined ? tvLoad()[key] : def; }
+
+// ── Sauvegarder un paramètre unique
+function tvSaveSetting(key, value){
+  const d = tvLoad(); d[key] = value; tvSave(d);
+}
+
+// ─────────────────────────────────────────────────────────
+// CLIPS TV
+// ─────────────────────────────────────────────────────────
+function tvGetClips(){
+  return tvGet('clips', []);
+}
+function tvAddClip(){
+  const url   = document.getElementById('tv-clip-url').value.trim();
+  const label = document.getElementById('tv-clip-label').value.trim() || 'Clip Zouk Love';
+  if(!url){ showToast('Collez un lien YouTube ou MP4','red'); return; }
+  const clips = tvGetClips();
+  clips.push({ url, label, id: Date.now() });
+  tvSaveSetting('clips', clips);
+  // Sauvegarder aussi comme lien TV actif
+  localStorage.setItem('integral_tv_url', url);
+  window._tvSavedUrl = url;
+  document.getElementById('tv-clip-url').value   = '';
+  document.getElementById('tv-clip-label').value = '';
+  tvRenderClips();
+  showToast('Clip ajouté ✅', 'green');
+}
+function tvDeleteClip(id){
+  const clips = tvGetClips().filter(c => c.id !== id);
+  tvSaveSetting('clips', clips);
+  tvRenderClips();
+}
+function tvPlayClip(url){
+  // Mettre à jour le lien TV et lancer
+  localStorage.setItem('integral_tv_url', url);
+  window._tvSavedUrl = url;
+  openTV();
+  showToast('🎬 Clip lancé sur la TV', 'gold');
+}
+function tvRenderClips(){
+  const list   = document.getElementById('tv-clips-list');
+  if(!list) return;
+  const clips  = tvGetClips();
+  if(!clips.length){
+    list.innerHTML = '<p style="font-size:.78rem;color:var(--muted);text-align:center;padding:14px">Aucun clip configuré. Ajoutez un lien YouTube ci-dessus.</p>';
+    return;
+  }
+  const icons = ['📺','🎵','🎬','🎶','🎸','🎹'];
+  list.innerHTML = clips.map((c,i) => `
+    <div class="tv-clip-item">
+      <div class="tv-clip-thumb">${icons[i%icons.length]}</div>
+      <div class="tv-clip-info">
+        <div class="tv-clip-name">${c.label}</div>
+        <div class="tv-clip-url">${c.url}</div>
+      </div>
+      <div class="tv-clip-btns">
+        <button class="tv-clip-btn play" onclick="tvPlayClip('${c.url.replace(/'/g,'\\\'')}')" title="Lancer">▶ Lancer</button>
+        <button class="tv-clip-btn del"  onclick="tvDeleteClip(${c.id})" title="Supprimer">✕</button>
+      </div>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────────────────
+// TICKER MESSAGES
+// ─────────────────────────────────────────────────────────
+const TICKER_DEFAULT = [
+  { icon:'📱', text:'Scannez le <strong>QR Code</strong> &amp; accédez à notre <strong>Menu Express</strong> en toute sérénité !', id:1 },
+  { icon:'☕', text:'Bienvenue à <strong>Intégral Restaurant Bar &amp; Café</strong> — Savourez chaque instant.', id:2 },
+  { icon:'🍽️', text:'Commandez facilement depuis votre salon grâce à notre <strong>Menu Express digital</strong>.', id:3 },
+];
+function tickerGetMsgs(){
+  return tvGet('tickerMsgs', TICKER_DEFAULT);
+}
+function tickerAddMsg(){
+  const icon = document.getElementById('ticker-new-icon').value.trim() || '✦';
+  const text = document.getElementById('ticker-new-text').value.trim();
+  if(!text){ showToast('Écrivez un message','red'); return; }
+  const msgs = tickerGetMsgs();
+  msgs.push({ icon, text, id: Date.now() });
+  tvSaveSetting('tickerMsgs', msgs);
+  document.getElementById('ticker-new-icon').value = '';
+  document.getElementById('ticker-new-text').value = '';
+  tickerRenderList();
+  tickerApply();
+  showToast('Message ajouté au ticker ✅', 'green');
+}
+function tickerDeleteMsg(id){
+  const msgs = tickerGetMsgs().filter(m => m.id !== id);
+  tvSaveSetting('tickerMsgs', msgs);
+  tickerRenderList();
+  tickerApply();
+}
+function tickerRenderList(){
+  const list = document.getElementById('ticker-msgs-list');
+  if(!list) return;
+  const msgs = tickerGetMsgs();
+  if(!msgs.length){
+    list.innerHTML = '<p style="font-size:.78rem;color:var(--muted);text-align:center;padding:14px">Aucun message.</p>';
+    return;
+  }
+  list.innerHTML = msgs.map(m => `
+    <div class="ticker-msg-item">
+      <span class="ticker-msg-emoji">${m.icon}</span>
+      <span class="ticker-msg-text" title="Cliquez pour modifier">${m.text.replace(/<[^>]+>/g,'')}</span>
+      <button class="ticker-msg-del" onclick="tickerDeleteMsg(${m.id})" title="Supprimer">✕</button>
+    </div>`).join('');
+}
+
+function tickerApply(){
+  const msgs = tickerGetMsgs();
+  const speed = tvGet('tickerSpeed', 28);
+  const track = document.querySelector('.ticker-track');
+  if(!track) return;
+  // Doubler pour boucle sans coupure
+  const html = [...msgs, ...msgs].map(m =>
+    `<span class="ticker-item"><span class="ticker-icon">${m.icon}</span> ${m.text}</span><span class="ticker-sep">✦</span>`
+  ).join('');
+  track.innerHTML = html;
+  track.style.animation = `tickerScroll ${speed}s linear infinite`;
+  // Preview
+  const prev = document.getElementById('tv-ticker-preview');
+  if(prev) prev.textContent = msgs.map(m => m.icon + ' ' + m.text.replace(/<[^>]+>/g,'')).join('  ✦  ');
+}
+
+// ─────────────────────────────────────────────────────────
+// MESSAGE FLASH
+// ─────────────────────────────────────────────────────────
+const FLASH_ICONS = { info:'ℹ️', promo:'🎉', urgent:'🚨', closed:'🔒' };
+let _flashTimer = null;
+
+function tvSendFlash(){
+  const title = document.getElementById('flash-title').value.trim();
+  const body  = document.getElementById('flash-body').value.trim();
+  const type  = document.getElementById('flash-type').value;
+  const dur   = parseInt(document.getElementById('flash-dur').value) || 30;
+  if(!title){ showToast('Écrivez un titre de message','red'); return; }
+
+  // Sauvegarder pour sync
+  tvSaveSetting('flash', { title, body, type, dur, ts: Date.now() });
+  tvShowFlash({ title, body, type, dur });
+  showToast('⚡ Message diffusé sur la borne', 'gold');
+}
+
+function tvShowFlash(f){
+  const overlay = document.getElementById('tvFlashOverlay');
+  const box     = document.getElementById('tvFlashBox');
+  const fill    = document.getElementById('tvFlashBarFill');
+  if(!overlay) return;
+
+  document.getElementById('tvFlashIcon').textContent  = FLASH_ICONS[f.type] || 'ℹ️';
+  document.getElementById('tvFlashTitle').textContent = f.title;
+  document.getElementById('tvFlashBody').textContent  = f.body || '';
+  box.className = 'tvf-box tvf-' + (f.type || 'info');
+  overlay.style.background = f.type === 'urgent' ? 'rgba(229,57,53,.18)' : 'rgba(0,0,0,.65)';
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+
+  // Compte à rebours barre
+  clearInterval(_flashTimer);
+  if(f.dur > 0){
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    setTimeout(() => {
+      fill.style.transition = `width ${f.dur}s linear`;
+      fill.style.width = '0%';
+    }, 50);
+    _flashTimer = setTimeout(() => tvDismissFlash(), f.dur * 1000);
+  } else {
+    fill.style.width = '0%';
+  }
+}
+
+function tvDismissFlash(){
+  clearInterval(_flashTimer);
+  const overlay = document.getElementById('tvFlashOverlay');
+  if(overlay) overlay.classList.remove('show');
+  document.body.style.overflow = '';
+  tvSaveSetting('flash', null);
+}
+
+function tvClearFlash(){
+  tvSaveSetting('flash', null);
+  tvDismissFlash();
+  showToast('Message annulé', '');
+}
+
+// ─────────────────────────────────────────────────────────
+// HORAIRES
+// ─────────────────────────────────────────────────────────
+function tvSaveHours(){
+  const open  = document.getElementById('hours-open')?.value || '07:00';
+  const close = document.getElementById('hours-close')?.value || '23:00';
+  const msg   = document.getElementById('hours-closed-msg')?.value || '';
+  tvSaveSetting('hours', { open, close, closedMsg: msg });
+  // Mettre à jour l'indicateur ouverture en direct
+  tvApplyHours({ open, close, closedMsg: msg });
+  showToast('Horaires mis à jour ✅', 'green');
+}
+
+function tvApplyHours(h){
+  if(!h) return;
+  const [oh, om] = h.open.split(':').map(Number);
+  const [ch, cm] = h.close.split(':').map(Number);
+  const now = new Date();
+  const cur = now.getHours() * 60 + now.getMinutes();
+  const openMin  = oh * 60 + om;
+  const closeMin = ch * 60 + cm;
+  const isOpen = cur >= openMin && cur < closeMin;
+  const dot = document.getElementById('openDot');
+  const lbl = document.getElementById('openLabel');
+  if(!dot || !lbl) return;
+  dot.classList.toggle('closed', !isOpen);
+  if(isOpen){
+    const remain = closeMin - cur;
+    lbl.textContent = remain < 60 ? `Ferme dans ${remain} min` : 'Ouvert maintenant';
+  } else {
+    lbl.textContent = h.closedMsg || `Fermé · Ouvre à ${h.open}`;
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// APPLIQUER TOUT
+// ─────────────────────────────────────────────────────────
+function tvApplyAll(){
+  const d = tvLoad();
+
+  // Ticker
+  tickerApply();
+
+  // Vitesse ticker
+  if(d.tickerSpeed){
+    const track = document.querySelector('.ticker-track');
+    if(track) track.style.animation = `tickerScroll ${d.tickerSpeed}s linear infinite`;
+    const spd = document.getElementById('ticker-speed');
+    if(spd){ spd.value = d.tickerSpeed; spd.nextElementSibling.textContent = d.tickerSpeed + 's'; }
+  }
+
+  // Ambiance volume
+  if(d.ambVolume !== undefined){
+    const master = window.ambNodes && window.ambNodes[0];
+    if(master && master.gain) master.gain.setValueAtTime(parseFloat(d.ambVolume), window.audioCtx?.currentTime || 0);
+    const sl = document.getElementById('amb-vol');
+    if(sl){ sl.value = d.ambVolume; document.getElementById('amb-vol-val').textContent = Math.round(d.ambVolume*100)+'%'; }
+  }
+
+  // Auto start ambiance
+  if(d.ambAutoStart && !window.ambPlaying) toggleAmb();
+
+  // Kiosk mode
+  if(d.kioskAuto) document.body.classList.add('kiosk-mode');
+
+  // Thème
+  if(d.theme){
+    document.documentElement.dataset.theme = d.theme;
+    localStorage.setItem('theme', d.theme);
+    const sel = document.getElementById('theme-sel');
+    if(sel) sel.value = d.theme;
+  }
+
+  // Horaires
+  if(d.hours) tvApplyHours(d.hours);
+
+  // Flash actif ?
+  if(d.flash && d.flash.ts){
+    const elapsed = (Date.now() - d.flash.ts) / 1000;
+    const remaining = (d.flash.dur || 30) - elapsed;
+    if(d.flash.dur === 0 || remaining > 0){
+      tvShowFlash({ ...d.flash, dur: d.flash.dur === 0 ? 0 : Math.round(remaining) });
+    }
+  }
+
+  // Attract delay
+  if(d.attractDelay){
+    const inp = document.getElementById('attract-delay');
+    if(inp) inp.value = d.attractDelay;
+  }
+
+  showToast('✅ Borne mise à jour en temps réel', 'green');
+}
+
+// ─────────────────────────────────────────────────────────
+// INITIALISATION DU TAB TV
+// ─────────────────────────────────────────────────────────
+function initTvTab(){
+  const d = tvLoad();
+
+  // Clips
+  tvRenderClips();
+
+  // Ticker
+  tickerRenderList();
+
+  // Champs horaires
+  if(d.hours){
+    const oh = document.getElementById('hours-open');
+    const ch = document.getElementById('hours-close');
+    const cm = document.getElementById('hours-closed-msg');
+    if(oh) oh.value = d.hours.open || '07:00';
+    if(ch) ch.value = d.hours.close || '23:00';
+    if(cm) cm.value = d.hours.closedMsg || '';
+  }
+
+  // Ambiance
+  if(d.ambVolume !== undefined){
+    const sl = document.getElementById('amb-vol');
+    if(sl){ sl.value = d.ambVolume; document.getElementById('amb-vol-val').textContent = Math.round(d.ambVolume*100)+'%'; }
+  }
+  if(d.ambAutoStart){
+    document.getElementById('amb-auto-tog')?.classList.add('active');
+  }
+
+  // Kiosk
+  if(d.kioskAuto) document.getElementById('kiosk-auto-tog')?.classList.add('active');
+
+  // Thème
+  if(d.theme){
+    const sel = document.getElementById('theme-sel');
+    if(sel) sel.value = d.theme;
+  }
+
+  // Attract delay
+  if(d.attractDelay){
+    const inp = document.getElementById('attract-delay');
+    if(inp) inp.value = d.attractDelay;
+  }
+
+  // Interlude duration
+  if(d.interludeDuration){
+    const inp = document.getElementById('tv-interlude-dur');
+    if(inp) inp.value = d.interludeDuration;
+  }
+
+  // Ticker speed
+  if(d.tickerSpeed){
+    const sl = document.getElementById('ticker-speed');
+    if(sl){ sl.value = d.tickerSpeed; sl.nextElementSibling.textContent = d.tickerSpeed + 's'; }
+  }
+
+  // Preview ticker
+  const prev = document.getElementById('tv-ticker-preview');
+  if(prev){
+    const msgs = tickerGetMsgs();
+    prev.textContent = msgs.map(m => m.icon + ' ' + m.text.replace(/<[^>]+>/g,'')).join('  ✦  ');
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// RÉCEPTION DES MISES À JOUR (même onglet + autres onglets)
+// ─────────────────────────────────────────────────────────
+window.addEventListener('borneUpdate', () => tvApplyAll());
+
+// Écouter les mises à jour depuis d'autres onglets (écran admin séparé)
+window.addEventListener('storage', e => {
+  if(e.key === TV_STORE_KEY) tvApplyAll();
+  if(e.key === 'integral_tv_url' && e.newValue) window._tvSavedUrl = e.newValue;
+});
+
+// ─────────────────────────────────────────────────────────
+// APPLY ON LOAD — restaurer les settings au démarrage
+// ─────────────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const d = tvLoad();
+    if(d.theme){ document.documentElement.dataset.theme = d.theme; localStorage.setItem('theme', d.theme); }
+    if(d.kioskAuto) document.body.classList.add('kiosk-mode');
+    if(d.hours) tvApplyHours(d.hours);
+    if(d.tickerMsgs) tickerApply();
+    if(d.ambAutoStart && !window.ambPlaying) setTimeout(toggleAmb, 2000);
+    // Interlude duration sync
+    if(d.interludeDuration) CONFIG.interludeDuration = parseInt(d.interludeDuration);
+    // Flash persistant
+    if(d.flash && d.flash.ts){
+      const elapsed = (Date.now() - d.flash.ts) / 1000;
+      const remaining = (d.flash.dur || 30) - elapsed;
+      if(d.flash.dur === 0 || remaining > 0){
+        setTimeout(() => tvShowFlash({ ...d.flash, dur: d.flash.dur === 0 ? 0 : Math.round(remaining) }), 3000);
+      }
+    }
+  }, 1800);
+});
+</script>
 
 </body>
 </html>
