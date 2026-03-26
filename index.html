@@ -44,6 +44,23 @@
   5. Collections à créer dans Firestore :
      • menu_overrides  (documents avec ID = clé du plat)
      • orders          (commandes des clients)
+     • tv_settings     (document unique "config" — sync multi-appareils)
+
+  ══ RÈGLES FIRESTORE À COLLER (Firestore → Règles) ══════════
+  rules_version = '2';
+  service cloud.firestore {
+    match /databases/{database}/documents {
+      match /menu_overrides/{doc}  { allow read, write: if true; }
+      match /orders/{doc}          { allow read, write: if true; }
+      match /tv_settings/{doc}     { allow read, write: if true; }
+    }
+  }
+  ════════════════════════════════════════════════════════════════════
+  SYNCHRONISATION MULTI-APPAREILS :
+  Tout changement (clips, ticker, horaires, thème, flash, volume…)
+  effectué sur n'importe quel appareil (phone, PC, tablette) est
+  propagé instantanément à tous les autres via Firebase onSnapshot.
+  Architecture : Phone admin → Firestore tv_settings/config → Borne TV
   ════════════════════════════════════════════════════════════════════
 -->
 <script type="module">
@@ -161,9 +178,69 @@
     });
   };
 
+  // ══════════════════════════════════════════════════════════
+  //  TV SETTINGS — Synchronisation MULTI-APPAREILS via Firebase
+  //  Document Firestore : tv_settings/config
+  //  Chaque modification (phone, PC, tablette) se propage
+  //  instantanément à TOUS les appareils connectés (borne TV,
+  //  admin phone, etc.) via onSnapshot temps réel.
+  // ══════════════════════════════════════════════════════════
+  const TV_FB_DOC = doc(db, 'tv_settings', 'config');
+
+  // ── Écrire dans Firebase (appelé par tvSave) ──────────────
+  window.fbSaveTvAll = async function(data){
+    try {
+      const clean = JSON.parse(JSON.stringify(data)); // retire undefined
+      delete clean._ts;
+      await setDoc(TV_FB_DOC, { ...clean, _ts: serverTimestamp() }, { merge: false });
+    } catch(e){ console.warn('fbSaveTvAll:', e.message); }
+  };
+
+  // ── Écrire un seul champ (appelé par tvSaveSetting) ───────
+  window.fbSaveTvField = async function(key, value){
+    try {
+      const patch = { [key]: value, _ts: serverTimestamp() };
+      await setDoc(TV_FB_DOC, patch, { merge: true });
+    } catch(e){ console.warn('fbSaveTvField:', e.message); }
+  };
+
+  // ── Écoute temps réel → propagation à tous les appareils ──
+  let _tvRemoteInit = false;
+  function startTvSettingsListener(){
+    try {
+      onSnapshot(TV_FB_DOC, snap => {
+        if(!snap.exists()) return;
+        const remote = snap.data();
+        delete remote._ts;
+
+        // 1. Mettre à jour le localStorage local (cache offline)
+        try {
+          localStorage.setItem('integral_tv_dashboard', JSON.stringify(remote));
+        } catch(_){}
+
+        // 2. Propager à tvApplyAll() — mais seulement après le 1er chargement
+        //    pour éviter de boucler sur nos propres sauvegardes
+        if(_tvRemoteInit){
+          window.dispatchEvent(new CustomEvent('borneUpdate', { detail: remote }));
+          // URL TV active sync
+          if(remote.activeUrl){
+            localStorage.setItem('integral_tv_url', remote.activeUrl);
+            window._tvSavedUrl = remote.activeUrl;
+          }
+        }
+        _tvRemoteInit = true;
+        setFbDot(true);
+      }, err => {
+        console.warn('TV settings listener:', err.message);
+        setFbDot(false);
+      });
+    } catch(e){ console.warn('startTvSettingsListener:', e.message); }
+  }
+
   // ── Démarrer l'écoute menu au chargement ─────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     setTimeout(startMenuListener, 800);
+    setTimeout(startTvSettingsListener, 1200);
   });
 </script>
 
@@ -6935,22 +7012,29 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTV(); }
 //  TV DASHBOARD ENGINE — Tableau de bord temps réel
 // ══════════════════════════════════════════════════════════
 
-// ── Données persistées en localStorage
+// ── Données persistées en localStorage + Firebase (sync multi-appareils)
 const TV_STORE_KEY = 'integral_tv_dashboard';
 
 function tvLoad(){
   try { return JSON.parse(localStorage.getItem(TV_STORE_KEY) || '{}'); } catch(e){ return {}; }
 }
 function tvSave(data){
+  // 1. Sauvegarder localement (immédiat, offline-first)
   localStorage.setItem(TV_STORE_KEY, JSON.stringify(data));
-  // Diffuser aux autres onglets / même fenêtre
+  // 2. Propager dans le même onglet
   window.dispatchEvent(new CustomEvent('borneUpdate', { detail: data }));
+  // 3. Écrire dans Firebase → propagation à TOUS les autres appareils
+  if(window.fbSaveTvAll) window.fbSaveTvAll(data);
 }
 function tvGet(key, def){ return tvLoad()[key] !== undefined ? tvLoad()[key] : def; }
 
-// ── Sauvegarder un paramètre unique
+// ── Sauvegarder un paramètre unique (local + Firebase)
 function tvSaveSetting(key, value){
-  const d = tvLoad(); d[key] = value; tvSave(d);
+  const d = tvLoad(); d[key] = value;
+  localStorage.setItem(TV_STORE_KEY, JSON.stringify(d));
+  window.dispatchEvent(new CustomEvent('borneUpdate', { detail: d }));
+  // Écriture partielle Firebase (merge:true → ne touche que ce champ)
+  if(window.fbSaveTvField) window.fbSaveTvField(key, value);
 }
 
 // ─────────────────────────────────────────────────────────
@@ -6965,14 +7049,17 @@ function tvAddClip(){
   if(!url){ showToast('Collez un lien YouTube ou MP4','red'); return; }
   const clips = tvGetClips();
   clips.push({ url, label, id: Date.now() });
-  tvSaveSetting('clips', clips);
-  // Sauvegarder aussi comme lien TV actif
+  // Sauvegarder les clips + l'URL active (sync Firebase via tvSaveSetting)
+  const d = tvLoad();
+  d.clips = clips;
+  d.activeUrl = url;
+  tvSave(d); // écrit local + Firebase entier
   localStorage.setItem('integral_tv_url', url);
   window._tvSavedUrl = url;
   document.getElementById('tv-clip-url').value   = '';
   document.getElementById('tv-clip-label').value = '';
   tvRenderClips();
-  showToast('Clip ajouté ✅', 'green');
+  showToast('Clip ajouté ✅ — synchronisé sur tous les appareils', 'green');
 }
 function tvDeleteClip(id){
   const clips = tvGetClips().filter(c => c.id !== id);
@@ -6980,11 +7067,12 @@ function tvDeleteClip(id){
   tvRenderClips();
 }
 function tvPlayClip(url){
-  // Mettre à jour le lien TV et lancer
+  // Mettre à jour le lien TV actif — synchronisé sur tous les appareils via Firebase
   localStorage.setItem('integral_tv_url', url);
   window._tvSavedUrl = url;
+  tvSaveSetting('activeUrl', url); // → Firebase → borne reçoit en temps réel
   openTV();
-  showToast('🎬 Clip lancé sur la TV', 'gold');
+  showToast('🎬 Clip lancé — synchronisé sur la borne TV', 'gold');
 }
 function tvRenderClips(){
   const list   = document.getElementById('tv-clips-list');
@@ -7294,15 +7382,20 @@ function initTvTab(){
 }
 
 // ─────────────────────────────────────────────────────────
-// RÉCEPTION DES MISES À JOUR (même onglet + autres onglets)
+// RÉCEPTION DES MISES À JOUR MULTI-APPAREILS
 // ─────────────────────────────────────────────────────────
+// ① Même onglet / même appareil → CustomEvent 'borneUpdate'
 window.addEventListener('borneUpdate', () => tvApplyAll());
 
-// Écouter les mises à jour depuis d'autres onglets (écran admin séparé)
+// ② Autres onglets sur le MÊME appareil → storage event (fallback)
 window.addEventListener('storage', e => {
   if(e.key === TV_STORE_KEY) tvApplyAll();
-  if(e.key === 'integral_tv_url' && e.newValue) window._tvSavedUrl = e.newValue;
+  if(e.key === 'integral_tv_url' && e.newValue){
+    window._tvSavedUrl = e.newValue;
+  }
 });
+// ③ Autres APPAREILS (phone → borne, PC → phone…) → Firebase onSnapshot
+//    géré dans startTvSettingsListener() ci-dessus dans le module Firebase
 
 // ─────────────────────────────────────────────────────────
 // APPLY ON LOAD — restaurer les settings au démarrage
@@ -7317,6 +7410,11 @@ window.addEventListener('load', () => {
     if(d.ambAutoStart && !window.ambPlaying) setTimeout(toggleAmb, 2000);
     // Interlude duration sync
     if(d.interludeDuration) CONFIG.interludeDuration = parseInt(d.interludeDuration);
+    // URL active sync (phone → borne)
+    if(d.activeUrl){
+      localStorage.setItem('integral_tv_url', d.activeUrl);
+      window._tvSavedUrl = d.activeUrl;
+    }
     // Flash persistant
     if(d.flash && d.flash.ts){
       const elapsed = (Date.now() - d.flash.ts) / 1000;
