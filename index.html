@@ -5311,9 +5311,8 @@ const DEMO = {
       }
     },
 
-    // Chap 12 : Conclusion → loop
+    // Chap 12 : Conclusion → reboucle automatiquement via tick()
     { t: 355, fn: () => { DEMO.scrollTo('hero'); } },
-    { t: 358, fn: () => DEMO.showEndScreen() },
   ],
 
   // ──────────────────────────────────────────────
@@ -5414,8 +5413,8 @@ const DEMO = {
     this.lastTs = ts;
 
     if(this.elapsed >= this.totalTime) {
-      this.elapsed = this.totalTime;
-      this.updateUI();
+      // Redémarrer automatiquement la démo en boucle sans interruption
+      this.restart();
       return;
     }
 
@@ -5903,7 +5902,7 @@ const DEMO = {
       <div class="interlude-brand">Intégral <span>Restaurant</span></div>
       <div class="interlude-countdown-wrap">
         <span>Reprise dans</span>
-        <span class="interlude-count" id="interludeCount">60</span>
+        <span class="interlude-count" id="interludeCount">20</span>
         <span>s</span>
       </div>
     </div>
@@ -5968,24 +5967,33 @@ function playInterlude() {
     if (noVideoHint) noVideoHint.style.display = hasVideo ? 'none' : 'block';
   }
 
-  // Compte à rebours
-  let remaining = CONFIG.interludeDuration || 60;
+  // Compte à rebours — setTimeout récursif (plus fiable que setInterval sur mobile)
+  const _interludeTotalSec = CONFIG.interludeDuration || 20; // 20s par défaut
+  let remaining = _interludeTotalSec;
   const countEl  = document.getElementById('interludeCount');
   const barEl    = document.getElementById('interludeProgressBar');
   if (countEl) countEl.textContent = remaining;
   if (barEl)   barEl.style.width = '100%';
 
-  clearInterval(_interludeTimer);
-  _interludeTimer = setInterval(() => {
-    remaining--;
+  // Stocker le timestamp de démarrage pour compenser le throttle mobile
+  const _interludeStartTs = Date.now();
+  window._interludeStartTs = _interludeStartTs;
+
+  clearTimeout(_interludeTimer);
+  function _interludeTick() {
+    // Calcul basé sur le temps réel écoulé (résistant au throttle)
+    const elapsed = Math.floor((Date.now() - _interludeStartTs) / 1000);
+    remaining = Math.max(0, _interludeTotalSec - elapsed);
     if (countEl) countEl.textContent = remaining;
-    const pct = (remaining / (CONFIG.interludeDuration || 45)) * 100;
+    const pct = (remaining / _interludeTotalSec) * 100;
     if (barEl) barEl.style.width = pct + '%';
     if (remaining <= 0) {
-      clearInterval(_interludeTimer);
       closeInterlude(true);
+      return;
     }
-  }, 1000);
+    _interludeTimer = setTimeout(_interludeTick, 500); // check toutes les 500ms
+  }
+  _interludeTimer = setTimeout(_interludeTick, 500);
 
   // Boutons
   document.getElementById('interludeReplayBtn').onclick = () => closeInterlude(true);
@@ -5993,7 +6001,7 @@ function playInterlude() {
 }
 
 function closeInterlude(restart) {
-  clearInterval(_interludeTimer);
+  clearTimeout(_interludeTimer); // timeout récursif → clearTimeout
   const overlay = document.getElementById('interludeOverlay');
   if (overlay) {
     overlay.classList.remove('show');
@@ -6001,10 +6009,17 @@ function closeInterlude(restart) {
     if (iframe) iframe.remove();
   }
   document.body.style.overflow = '';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
   if (restart) {
-    setTimeout(launchDemoLoop, 400);
+    // Double délai pour laisser le navigateur mobile "respirer" avant rAF
+    setTimeout(() => {
+      const cta = document.getElementById('demoCTA');
+      if (cta) cta.style.display = 'none';
+      setTimeout(launchDemoLoop, 200);
+    }, 300);
   } else {
-    // Affiche l'écran CTA
+    // Mode manuel : afficher le CTA
     const cta = document.getElementById('demoCTA');
     if (cta) cta.style.display = 'flex';
   }
@@ -6070,6 +6085,42 @@ function demoPProgressClick(e) {
 // ── Init au chargement
 window.addEventListener('load', () => {
   setTimeout(() => DEMO.init(), 800);
+
+  // ══════════════════════════════════════════════════════
+  //  AUTO-DÉMARRAGE KIOSQUE — 8h sans intervention humaine
+  //  Lance la démo automatiquement 5 secondes après le
+  //  chargement de la page, sans nécessiter de clic.
+  // ══════════════════════════════════════════════════════
+  setTimeout(() => {
+    console.log('[KIOSQUE] Auto-démarrage de la boucle demo…');
+    const cta = document.getElementById('demoCTA');
+    if(cta) cta.style.display = 'none';
+    // TTS sans geste utilisateur : mode texte seul si nécessaire
+    if(DEMO.ttsEnabled === undefined) DEMO.ttsEnabled = ('speechSynthesis' in window);
+    launchDemoLoop();
+  }, 5000); // ← Modifier ici pour ajuster le délai initial (ms)
+
+  // ══════════════════════════════════════════════════════
+  //  WAKE LOCK — Empêche la TV / tablette de s'endormir
+  //  Compatible Chrome 84+, Edge, Android Chrome
+  // ══════════════════════════════════════════════════════
+  async function requestWakeLock(){
+    if(!('wakeLock' in navigator)) return;
+    try {
+      window._wakeLock = await navigator.wakeLock.request('screen');
+      console.log('[WakeLock] Écran maintenu actif');
+      window._wakeLock.addEventListener('release', () => {
+        console.warn('[WakeLock] Libéré — réacquisition dans 5s');
+        setTimeout(requestWakeLock, 5000);
+      });
+    } catch(e){ console.warn('[WakeLock] Non disponible :', e.message); }
+  }
+  // Réacquérir le wake lock quand l'onglet redevient visible
+  document.addEventListener('visibilitychange', () => {
+    if(document.visibilityState === 'visible') requestWakeLock();
+  });
+  requestWakeLock();
+
   // Vérifier TTS et mettre à jour l'indicateur
   setTimeout(() => {
     const dot  = document.getElementById('ttsStatusDot');
@@ -6317,34 +6368,74 @@ window.addEventListener('load', () => {
 
   function showAttract(){
     if(screen.classList.contains('show')) return;
+
+    // ── KIOSQUE 8H : ne jamais interrompre la démo automatique
+    //    Si la démo tourne, on reporte simplement le timer
+    if(window.DEMO && DEMO.playing && !DEMO.paused) {
+      resetIdle();
+      return;
+    }
+    // ── Si l'interlude tourne, ne pas montrer l'attract non plus
+    if(document.getElementById('interludeOverlay') &&
+       document.getElementById('interludeOverlay').classList.contains('show')) {
+      resetIdle();
+      return;
+    }
+
     screen.classList.add('show');
     updateClock();
-    // Mettre la démo en pause si active
-    if(window.DEMO && DEMO.playing && !DEMO.paused) {
-      try { DEMO.togglePlay(); } catch(e){}
-    }
+
+    // ── Auto-dismiss : si personne ne touche dans 30s → relancer la démo seul
+    clearTimeout(window._attractAutoDismiss);
+    window._attractAutoDismiss = setTimeout(() => {
+      if(screen.classList.contains('show')){
+        console.log('[ATTRACT] Auto-dismiss → relance démo');
+        hideAttract();
+      }
+    }, 30000); // 30 secondes d'attract puis relance automatique
   }
 
   function hideAttract(){
     if(!screen.classList.contains('show')) return;
+    clearTimeout(window._attractAutoDismiss); // annuler le timer auto-dismiss
     screen.classList.remove('show');
     resetIdle();
-    // Remettre la démo sur l'écran d'accueil
+
+    // Scroll en haut immédiatement pour que la démo parte du bon endroit
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // ── KIOSQUE 8H : relancer la démo directement, sans CTA
     setTimeout(() => {
-      const cta = document.getElementById('demoCTA');
-      if(cta) cta.style.display = 'flex';
-      if(window.DEMO && DEMO.playing) {
+      // Stopper proprement tout ce qui tourne
+      if(window.DEMO) {
         try { DEMO.synth && DEMO.synth.cancel(); } catch(e){}
-        DEMO.playing = false; DEMO.paused = false; DEMO.elapsed = 0;
         cancelAnimationFrame(DEMO.raf);
+        DEMO.playing        = false;
+        DEMO.paused         = false;
+        DEMO.elapsed        = 0;
+        DEMO.lastTs         = null;
+        DEMO.currentChapter = -1;
+        if(DEMO.actionsDone) DEMO.actionsDone.clear();
       }
-    }, 200);
+      // Fermer tous les modaux ouverts
+      ['cartDrawer','salonModal','livraisonModal','dishModal','adminModal','qrModal'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el){ el.style.display=''; el.classList.remove('open','show'); }
+      });
+      // Masquer le CTA (écran de démarrage manuel)
+      const cta = document.getElementById('demoCTA');
+      if(cta) cta.style.display = 'none';
+
+      launchDemoLoop();
+    }, 400);
   }
 
   function resetIdle(){
     clearTimeout(idleTimer);
     idleTimer = setTimeout(showAttract, IDLE_DELAY);
   }
+  // Exposer resetIdle globalement (utilisé par le watchdog)
+  window._resetKioskIdle = resetIdle;
 
   // Écouter toute interaction
   ['touchstart','touchmove','mousedown','mousemove','keydown','scroll','click'].forEach(evt => {
@@ -6360,6 +6451,75 @@ window.addEventListener('load', () => {
 
   // Démarrer le timer
   resetIdle();
+})();
+
+// ══════════════════════════════════════════════════════════════
+//  WATCHDOG KIOSQUE — Surveillance toutes les 30s
+//  Redémarre automatiquement si la démo se bloque ou s'arrête
+//  Corrige aussi le bug Chrome speechSynthesis qui se fige
+// ══════════════════════════════════════════════════════════════
+(function startKioskWatchdog(){
+  window._lastDemoStart = Date.now();
+
+  // Intercepter launchDemoLoop pour tracker les démarrages
+  const _origLaunch = window.launchDemoLoop;
+  window.launchDemoLoop = function(){
+    window._lastDemoStart = Date.now();
+    _origLaunch();
+  };
+
+  setInterval(() => {
+    const attractEl        = document.getElementById('attractScreen');
+    const interludeEl      = document.getElementById('interludeOverlay');
+    const attractVisible   = attractEl   && attractEl.classList.contains('show');
+    const interludeVisible = interludeEl && interludeEl.classList.contains('show');
+
+    if(!window.DEMO) return;
+
+    // ── Pendant la démo : maintenir le timer d'inactivité actif
+    //    pour éviter que l'attract screen coupe la démo automatique
+    if(DEMO.playing && !DEMO.paused && window._resetKioskIdle){
+      window._resetKioskIdle();
+    }
+
+    // ── Interlude bloqué : si affiché depuis plus de 90s, forcer la fermeture
+    if(interludeVisible && window._interludeStartTs){
+      const interludeAge = Date.now() - window._interludeStartTs;
+      const maxDur = ((CONFIG && CONFIG.interludeDuration) || 20) * 1000 + 30000; // durée + 30s de grâce
+      if(interludeAge > maxDur){
+        console.warn('[WATCHDOG] Interlude bloqué depuis ' + Math.round(interludeAge/1000) + 's → fermeture forcée');
+        closeInterlude(true);
+      }
+    }
+
+    // ── Redémarrage si la démo est arrêtée depuis plus de 20s
+    //    (et ni attract ni interlude ne sont affichés)
+    if(!DEMO.playing && !DEMO.paused && !attractVisible && !interludeVisible){
+      const elapsed = Date.now() - (window._lastDemoStart || 0);
+      if(elapsed > 20000){
+        console.warn('[WATCHDOG] Démo inactive depuis ' + Math.round(elapsed/1000) + 's → relance forcée');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.launchDemoLoop();
+      }
+    }
+
+    // ── Fix bug Chrome speechSynthesis figé après ~15-20 min
+    if(window.speechSynthesis && DEMO.playing){
+      const now = Date.now();
+      if(!window._ttsPingLast) window._ttsPingLast = now;
+      if(speechSynthesis.speaking){
+        if(now - window._ttsPingLast > 18000){
+          console.warn('[TTS-FIX] speechSynthesis figé → réactivation');
+          speechSynthesis.pause();
+          requestAnimationFrame(function(){ speechSynthesis.resume(); });
+          window._ttsPingLast = now;
+        }
+      } else {
+        window._ttsPingLast = now;
+      }
+    }
+
+  }, 10000); // Vérification toutes les 10 secondes (était 30s)
 })();
 
 // Service Worker désactivé (fichier sw.js non présent)
