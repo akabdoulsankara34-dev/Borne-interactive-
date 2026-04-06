@@ -2696,151 +2696,150 @@ if(tableLabel){
 // ══ IMAGE MAPPING ════════════════════════════════
 // Unsplash IDs pour chaque catégorie/item — remplace les emojis
 const IMG = {
-  // Photos fiables Unsplash
-  omelette:   'photo-1525351484163-7529414344d8',
-  croissant:  'photo-1555507036-ab1f4038808a',
-  painChoc:   'photo-1509365465985-25d11c17e812',
-  sandwich:   'photo-1528735602780-2552fd46c7af',
-  rognon:     'photo-1544025162-d76538b2a681',
-  gesier:     'photo-1544025162-d76538b2a681',
-  saladeVerte:'photo-1512621776951-a57141f2eefd',
-  saladeComp: 'photo-1540189549336-e6e99c3679fe',
-  saladeMixte:'photo-1512621776951-a57141f2eefd',
-  saladeNicoi:'photo-1547592180-85f173990554',
-  avocat:     'photo-1512787397060-f519f2f35c07',
-  nem:        'photo-1569050467447-ce54b3bbc37d',
-  brique:     'photo-1563245372-f21724e3856d',
-  roti:       'photo-1501200291289-c5a76c232e5f',
-  steack:     'photo-1546833999-b9f581a1996d',
-  cotePorcMiel:'photo-1529193591184-b1d58069ecdd',
-  pouletSaute:'photo-1587593810167-a84920ea0781',
-  pilon:      'photo-1527477396000-e27163b481c2',
-  aileron:    'photo-1527477396000-e27163b481c2',
-  pizza:      'photo-1565299624946-b28f40a0ae38',
-  burger:     'photo-1568901346375-23c9450c58cd',
-  cheeseBurger:'photo-1553979459-d2229ba7433b',
-  phillyPoulet:'photo-1561651188-d207bbec4ec3',
-  phillyBoeuf:'photo-1561651188-d207bbec4ec3',
-  chawarma:   'photo-1561651188-d207bbec4ec3',
-  clubSandwich:'photo-1528735602780-2552fd46c7af',
-  capitaine:  'photo-1519708227418-c8fd9a32b7a2',
-  carpe:      'photo-1519708227418-c8fd9a32b7a2',
-  brochette:  'photo-1529543544282-ea669407fca3',
-  merguez:    'photo-1529543544282-ea669407fca3',
-  saucisse:   'photo-1473093295043-cdd812d0e601',
-  gratin:     'photo-1548869190-0e40f9537e96',
-  pomme:      'photo-1568702846914-96b305d2aaeb',
-  aloco:      'photo-1590694451659-c65e9f0c1bf0',
-  frite:      'photo-1573080496219-bb964701c433',
-  riz:        'photo-1516684732162-798a0062be99',
-  crepe:      'photo-1519676867240-f03562e64548',
-  saladeFruit:'photo-1490474418585-ba9bad8fd0ea',
-  cremeCaramel:'photo-1488477181946-6428a0291777',
-  fruit:      'photo-1490474418585-ba9bad8fd0ea',
-  jus:        'photo-1600271886742-f049cd451bba',
-  jusCitron:  'photo-1602584386319-fa8eb4361c2a',
-  ananas:     'photo-1589820296156-2454bb8a6ad1',
-  orange:     'photo-1552070078-4545f8a784b5',
-  gingembre:  'photo-1615485290382-441e4d049cb5',
-  the:        'photo-1556679343-c7306c1976bc',
-  cafe:       'photo-1509042239860-f550ce710b93',
-  cappuccino: 'photo-1534778101976-62847782c213',
-  chocolat:   'photo-1578916171728-46686eac8d58',
-  cocktailSA: 'photo-1541167760496-1628856ab772',
-  cocktailAl: 'photo-1551024709-8f23befc6f87',
-  biere:      'photo-1535958636474-b021ee887b13',
-  coca:       'photo-1555001426-788f73e5b10a',
-  fanta:      'photo-1554160090-74484d165d57',
-  vin:        'photo-1510812431401-41d2bd2722f3',
-  champagne:  'photo-1543353071-087092ec393a',
-  whisky:     'photo-1569529465841-dfecdab7503b',
-  cognac:     'photo-1569529465841-dfecdab7503b',
-  rhum:       'photo-1569529465841-dfecdab7503b',
-  liqueur:    'photo-1569529465841-dfecdab7503b',
-  defaultFood:'photo-1546069901-ba9599a7e63c',
+  // picsum.photos — IDs numériques directs, sans redirection, chargement instantané
+  omelette:    'https://picsum.photos/id/488/400/300.jpg',
+  croissant:   'https://picsum.photos/id/312/400/300.jpg',
+  painChoc:    'https://picsum.photos/id/431/400/300.jpg',
+  sandwich:    'https://picsum.photos/id/292/400/300.jpg',
+  rognon:      'https://picsum.photos/id/675/400/300.jpg',
+  gesier:      'https://picsum.photos/id/675/400/300.jpg',
+  saladeVerte: 'https://picsum.photos/id/292/400/300.jpg',
+  saladeComp:  'https://picsum.photos/id/139/400/300.jpg',
+  saladeMixte: 'https://picsum.photos/id/292/400/300.jpg',
+  saladeNicoi: 'https://picsum.photos/id/292/400/300.jpg',
+  avocat:      'https://picsum.photos/id/429/400/300.jpg',
+  nem:         'https://picsum.photos/id/197/400/300.jpg',
+  brique:      'https://picsum.photos/id/493/400/300.jpg',
+  roti:        'https://picsum.photos/id/667/400/300.jpg',
+  steack:      'https://picsum.photos/id/1080/400/300.jpg',
+  cotePorcMiel:'https://picsum.photos/id/1035/400/300.jpg',
+  pouletSaute: 'https://picsum.photos/id/999/400/300.jpg',
+  pilon:       'https://picsum.photos/id/999/400/300.jpg',
+  aileron:     'https://picsum.photos/id/1080/400/300.jpg',
+  pizza:       'https://picsum.photos/id/431/400/300.jpg',
+  burger:      'https://picsum.photos/id/292/400/300.jpg',
+  cheeseBurger:'https://picsum.photos/id/292/400/300.jpg',
+  phillyPoulet:'https://picsum.photos/id/103/400/300.jpg',
+  phillyBoeuf: 'https://picsum.photos/id/103/400/300.jpg',
+  chawarma:    'https://picsum.photos/id/103/400/300.jpg',
+  clubSandwich:'https://picsum.photos/id/103/400/300.jpg',
+  capitaine:   'https://picsum.photos/id/139/400/300.jpg',
+  carpe:       'https://picsum.photos/id/139/400/300.jpg',
+  brochette:   'https://picsum.photos/id/1080/400/300.jpg',
+  merguez:     'https://picsum.photos/id/1080/400/300.jpg',
+  saucisse:    'https://picsum.photos/id/493/400/300.jpg',
+  gratin:      'https://picsum.photos/id/493/400/300.jpg',
+  pomme:       'https://picsum.photos/id/429/400/300.jpg',
+  aloco:       'https://picsum.photos/id/429/400/300.jpg',
+  frite:       'https://picsum.photos/id/429/400/300.jpg',
+  riz:         'https://picsum.photos/id/488/400/300.jpg',
+  crepe:       'https://picsum.photos/id/312/400/300.jpg',
+  saladeFruit: 'https://picsum.photos/id/102/400/300.jpg',
+  cremeCaramel:'https://picsum.photos/id/431/400/300.jpg',
+  fruit:       'https://picsum.photos/id/102/400/300.jpg',
+  jus:         'https://picsum.photos/id/425/400/300.jpg',
+  jusCitron:   'https://picsum.photos/id/425/400/300.jpg',
+  ananas:      'https://picsum.photos/id/102/400/300.jpg',
+  orange:      'https://picsum.photos/id/425/400/300.jpg',
+  gingembre:   'https://picsum.photos/id/425/400/300.jpg',
+  the:         'https://picsum.photos/id/425/400/300.jpg',
+  cafe:        'https://picsum.photos/id/312/400/300.jpg',
+  cappuccino:  'https://picsum.photos/id/312/400/300.jpg',
+  chocolat:    'https://picsum.photos/id/431/400/300.jpg',
+  cocktailSA:  'https://picsum.photos/id/425/400/300.jpg',
+  cocktailAl:  'https://picsum.photos/id/425/400/300.jpg',
+  biere:       'https://picsum.photos/id/493/400/300.jpg',
+  coca:        'https://picsum.photos/id/425/400/300.jpg',
+  fanta:       'https://picsum.photos/id/425/400/300.jpg',
+  vin:         'https://picsum.photos/id/493/400/300.jpg',
+  champagne:   'https://picsum.photos/id/493/400/300.jpg',
+  whisky:      'https://picsum.photos/id/493/400/300.jpg',
+  cognac:      'https://picsum.photos/id/493/400/300.jpg',
+  rhum:        'https://picsum.photos/id/425/400/300.jpg',
+  liqueur:     'https://picsum.photos/id/425/400/300.jpg',
+  defaultFood: 'https://picsum.photos/id/292/400/300.jpg',
 };
+
+// SVG fallback inline (aucune dépendance réseau)
+const IMG_FALLBACK_SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0faf4'/%3E%3Ctext x='200' y='140' font-family='sans-serif' font-size='48' text-anchor='middle' fill='%231A6B3C' opacity='.3'%3E🍽️%3C/text%3E%3Ctext x='200' y='190' font-family='sans-serif' font-size='14' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3EIntégral Restaurant%3C/text%3E%3C/svg%3E";
 
 function getItemImageUrl(item){
   if(item.img && item.img.startsWith('http')) return item.img;
   const n = item.nom.toLowerCase();
   const c = item.cat.toLowerCase();
-  let id = null;
 
   // Specific mappings
-  if(n.includes('rognon'))            id = IMG.rognon;
-  else if(n.includes('foie'))         id = IMG.gesier;
-  else if(n.includes('gesier')||n.includes('gésier')) id = IMG.gesier;
-  else if(n.includes('croissant'))    id = IMG.croissant;
-  else if(n.includes('pain au chocolat')) id = IMG.painChoc;
-  else if(n.includes('omelette'))     id = IMG.omelette;
-  else if(n.includes('oeuf')||n.includes('œuf')) id = IMG.omelette;
-  else if(n.includes('sandwich')||n.includes('club')) id = IMG.sandwich;
-  else if(n.includes('niçoise'))      id = IMG.saladeNicoi;
-  else if(n.includes('avocat'))       id = IMG.avocat;
-  else if(n.includes('nem'))          id = IMG.nem;
-  else if(n.includes('brique'))       id = IMG.brique;
-  else if(n.includes('caille'))       id = IMG.roti;
-  else if(n.includes('steack')||n.includes('steak')) id = IMG.steack;
-  else if(n.includes('côte de porc')&&n.includes('miel')) id = IMG.cotePorcMiel;
-  else if(n.includes('côte de porc')) id = IMG.cotePorcMiel;
-  else if(n.includes('poulet sauté')) id = IMG.pouletSaute;
-  else if(n.includes('pilon'))        id = IMG.pilon;
-  else if(n.includes('aileron'))      id = IMG.aileron;
-  else if(n.includes('pizza'))        id = IMG.pizza;
-  else if(n.includes('cheese burger')) id = IMG.cheeseBurger;
-  else if(n.includes('hamburger')||n.includes('burger')) id = IMG.burger;
-  else if(n.includes('philly'))       id = IMG.phillyPoulet;
-  else if(n.includes('chawarma'))     id = IMG.chawarma;
-  else if(n.includes('capitaine'))    id = IMG.capitaine;
-  else if(n.includes('carpe'))        id = IMG.carpe;
-  else if(n.includes('brochette'))    id = IMG.brochette;
-  else if(n.includes('merguez'))      id = IMG.merguez;
-  else if(n.includes('saucisse'))     id = IMG.saucisse;
-  else if(n.includes('gratin'))       id = IMG.gratin;
-  else if(n.includes('aloco'))        id = IMG.aloco;
-  else if(n.includes('frite'))        id = IMG.frite;
-  else if(n.includes('riz'))          id = IMG.riz;
-  else if(n.includes('crêpe')||n.includes('crepe')) id = IMG.crepe;
-  else if(n.includes('salade de fruit')) id = IMG.saladeFruit;
-  else if(n.includes('crème caramel')) id = IMG.cremeCaramel;
-  else if(n.includes('fruit'))        id = IMG.fruit;
-  else if(n.includes('gingembre')&&c.includes('jus')) id = IMG.gingembre;
-  else if(n.includes('ananas'))       id = IMG.ananas;
-  else if(n.includes('orange'))       id = IMG.orange;
-  else if(n.includes('cappuccino'))   id = IMG.cappuccino;
-  else if(n.includes('café')||n.includes('cafe')||n.includes('nespresso')) id = IMG.cafe;
-  else if(n.includes('chocolat chaud')) id = IMG.chocolat;
-  else if(n.includes('thé')||n.includes('the')) id = IMG.the;
-  else if(n.includes('coca'))         id = IMG.coca;
-  else if(n.includes('fanta'))        id = IMG.fanta;
-  else if(n.includes('sprite'))       id = IMG.coca;
-  else if(n.includes('heineken')||n.includes('guinness')||n.includes('bière')||n.includes('biere')) id = IMG.biere;
-  else if(n.includes('champagne')||n.includes('nicolas')||n.includes('laurent')||n.includes('moet')) id = IMG.champagne;
-  else if(n.includes('whisky')||n.includes('jack daniel')||n.includes('chivas')||n.includes('glenfiddich')) id = IMG.whisky;
-  else if(n.includes('cognac')||n.includes('hennessy')||n.includes('saint remy')) id = IMG.cognac;
-  else if(n.includes('rhum')||n.includes('diplomatico')) id = IMG.rhum;
-  else if(n.includes('ricard')||n.includes('baileys')||n.includes('jager')) id = IMG.liqueur;
-  else if(n.includes('vin')||n.includes('rosé')) id = IMG.vin;
-  else if(c.includes('cocktail sans')) id = IMG.cocktailSA;
-  else if(c.includes('cocktail alc')) id = IMG.cocktailAl;
-  else if(c.includes('jus'))          id = IMG.jus;
-  else if(c.includes('salade'))       id = IMG.saladeVerte;
-  else if(c.includes('plats chauds')) id = IMG.pouletSaute;
-  else if(c.includes('fast food'))    id = IMG.burger;
-  else if(c.includes('grillades'))    id = IMG.brochette;
-  else if(c.includes('pizza'))        id = IMG.pizza;
-  else if(c.includes('dessert'))      id = IMG.crepe;
-  else if(c.includes('petit'))        id = IMG.omelette;
-  else                                id = IMG.defaultFood;
-
-  return `https://images.unsplash.com/${id}?w=400&h=300&fit=crop&auto=format`;
+  if(n.includes('rognon'))            return IMG.rognon;
+  if(n.includes('foie'))              return IMG.gesier;
+  if(n.includes('gesier')||n.includes('gésier')) return IMG.gesier;
+  if(n.includes('croissant'))         return IMG.croissant;
+  if(n.includes('pain au chocolat'))  return IMG.painChoc;
+  if(n.includes('omelette'))          return IMG.omelette;
+  if(n.includes('oeuf')||n.includes('œuf')) return IMG.omelette;
+  if(n.includes('sandwich')||n.includes('club')) return IMG.sandwich;
+  if(n.includes('niçoise'))           return IMG.saladeNicoi;
+  if(n.includes('avocat'))            return IMG.avocat;
+  if(n.includes('nem'))               return IMG.nem;
+  if(n.includes('brique'))            return IMG.brique;
+  if(n.includes('caille'))            return IMG.roti;
+  if(n.includes('steack')||n.includes('steak')) return IMG.steack;
+  if(n.includes('côte de porc'))      return IMG.cotePorcMiel;
+  if(n.includes('poulet sauté'))      return IMG.pouletSaute;
+  if(n.includes('pilon'))             return IMG.pilon;
+  if(n.includes('aileron'))           return IMG.aileron;
+  if(n.includes('pizza'))             return IMG.pizza;
+  if(n.includes('cheese burger'))     return IMG.cheeseBurger;
+  if(n.includes('hamburger')||n.includes('burger')) return IMG.burger;
+  if(n.includes('philly'))            return IMG.phillyPoulet;
+  if(n.includes('chawarma'))          return IMG.chawarma;
+  if(n.includes('capitaine'))         return IMG.capitaine;
+  if(n.includes('carpe'))             return IMG.carpe;
+  if(n.includes('brochette'))         return IMG.brochette;
+  if(n.includes('merguez'))           return IMG.merguez;
+  if(n.includes('saucisse'))          return IMG.saucisse;
+  if(n.includes('gratin'))            return IMG.gratin;
+  if(n.includes('aloco'))             return IMG.aloco;
+  if(n.includes('frite'))             return IMG.frite;
+  if(n.includes('riz'))               return IMG.riz;
+  if(n.includes('crêpe')||n.includes('crepe')) return IMG.crepe;
+  if(n.includes('salade de fruit'))   return IMG.saladeFruit;
+  if(n.includes('crème caramel'))     return IMG.cremeCaramel;
+  if(n.includes('fruit'))             return IMG.fruit;
+  if(n.includes('gingembre')&&c.includes('jus')) return IMG.gingembre;
+  if(n.includes('ananas'))            return IMG.ananas;
+  if(n.includes('orange'))            return IMG.orange;
+  if(n.includes('cappuccino'))        return IMG.cappuccino;
+  if(n.includes('café')||n.includes('cafe')||n.includes('nespresso')) return IMG.cafe;
+  if(n.includes('chocolat chaud'))    return IMG.chocolat;
+  if(n.includes('thé')||n.includes('the')) return IMG.the;
+  if(n.includes('coca'))              return IMG.coca;
+  if(n.includes('fanta'))             return IMG.fanta;
+  if(n.includes('sprite'))            return IMG.coca;
+  if(n.includes('heineken')||n.includes('guinness')||n.includes('bière')||n.includes('biere')) return IMG.biere;
+  if(n.includes('champagne')||n.includes('nicolas')||n.includes('laurent')||n.includes('moet')) return IMG.champagne;
+  if(n.includes('whisky')||n.includes('jack daniel')||n.includes('chivas')||n.includes('glenfiddich')) return IMG.whisky;
+  if(n.includes('cognac')||n.includes('hennessy')||n.includes('saint remy')) return IMG.cognac;
+  if(n.includes('rhum')||n.includes('diplomatico')) return IMG.rhum;
+  if(n.includes('ricard')||n.includes('baileys')||n.includes('jager')) return IMG.liqueur;
+  if(n.includes('vin')||n.includes('rosé')) return IMG.vin;
+  if(c.includes('cocktail sans')) return IMG.cocktailSA;
+  if(c.includes('cocktail alc'))  return IMG.cocktailAl;
+  if(c.includes('jus'))           return IMG.jus;
+  if(c.includes('salade'))        return IMG.saladeVerte;
+  if(c.includes('plats chauds'))  return IMG.pouletSaute;
+  if(c.includes('fast food'))     return IMG.burger;
+  if(c.includes('grillades'))     return IMG.brochette;
+  if(c.includes('pizza'))         return IMG.pizza;
+  if(c.includes('dessert'))       return IMG.crepe;
+  if(c.includes('petit'))         return IMG.omelette;
+  return IMG.defaultFood;
 }
 
 // ══ MENU DATA ════════════════════════════════════
 window.MENU = [
   // ── Petit-Déjeuner
-  {cat:"Petit-Déjeuner",nom:"Rognon sauté",prix:2000,img: "https://image2url.com/r2/default/images/1771593477187-4416a69f-381f-408c-a810-695718b0d675.jpeg"},
-  {cat:"Petit-Déjeuner",nom:"Foie sauté",prix:2000,img: "https://image2url.com/r2/default/images/1771594087285-1f3e6f8d-225d-406b-98bd-dff428767301.jpg"},
+  {cat:"Petit-Déjeuner",nom:"Rognon sauté",prix:2000,img: "https://picsum.photos/id/675/400/300.jpg"},
+  {cat:"Petit-Déjeuner",nom:"Foie sauté",prix:2000,img: "https://picsum.photos/id/666/400/300.jpg"},
   {cat:"Petit-Déjeuner",nom:"Croissant",prix:600,img:""},
   {cat:"Petit-Déjeuner",nom:"Pain au chocolat",prix:600,img:""},
   {cat:"Petit-Déjeuner",nom:"Omelette Nature",prix:1500,img:""},
@@ -2964,7 +2963,7 @@ window.MENU = [
   {cat:"Champagnes",nom:"Nicolas feuillate",prix:28000,img:""},
   {cat:"Champagnes",nom:"Laurent Perrier",prix:33000,img:""},
   {cat:"Champagnes",nom:"Luc Belair Gold",prix:18000,img:""},
-  {cat:"Champagnes",nom:"Moet & Chamdor",prix:33000,img: "https://image2url.com/r2/default/images/1771591601286-e276573f-f686-4d71-acb2-31040de34b94.jpeg"},
+  {cat:"Champagnes",nom:"Moet & Chamdor",prix:33000,img: "https://picsum.photos/id/493/400/300.jpg"},
   {cat:"Champagnes",nom:"Cooks brut",prix:19000,img:""},
   // ── Liqueurs
   {cat:"Liqueurs",nom:"Ricard / Pastis 51 (Bouteille)",prix:11000,img:""},
@@ -3086,7 +3085,7 @@ function updateCartUI(){
 
   itemsEl.innerHTML = cart.map((it,i) => `
     <div class="cart-item">
-      <img class="ci-thumb" src="${it.img}" alt="${it.nom}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop'"/>
+      <img class="ci-thumb" src="${it.img}" alt="${it.nom}" loading="eager" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f0faf4' rx='8'/%3E%3Ctext x='40' y='48' font-size='28' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3E🍽%3C/text%3E%3C/svg%3E'"/>
       <div class="ci-info">
         <div class="ci-name">${it.nom}</div>
         <div class="ci-unit-price">${fmt(it.prix)} / unité</div>
@@ -3303,10 +3302,10 @@ window.renderMenu = function(filter){
       div.dataset.nom = item.nom;
       div.innerHTML = `
         <div class="card-img-wrap">
-          <img class="card-img" src="${imgUrl}" alt="${nomEsc}" loading="lazy"
+          <img class="card-img" src="${imgUrl}" alt="${nomEsc}" loading="eager"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="card-img-fallback" style="display:none">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=60&h=60&fit=crop" alt="" style="width:50px;height:50px;object-fit:cover;border-radius:8px;opacity:.4"/>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f0faf4' rx='6'/%3E%3Ctext x='30' y='38' font-size='22' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3E🍽%3C/text%3E%3C/svg%3E" alt="" style="width:50px;height:50px;object-fit:cover;border-radius:8px;opacity:.4"/>
           </div>
           ${item.dispo===false?'<div class="card-unavail-badge">Indisponible</div>':''}
         </div>
@@ -3599,7 +3598,7 @@ function renderLivraisonMenu(){
     const qty = lvCart[item.nom] || 0;
     return `
     <div style="display:flex;align-items:center;gap:12px;padding:11px 13px;border:1.5px solid ${qty>0?'var(--g)':'var(--border)'};border-radius:13px;background:${qty>0?'var(--g3)':'var(--white)'};transition:var(--t)">
-      <img src="${getItemImageUrl(item)}" alt="${item.nom}" style="width:46px;height:46px;border-radius:9px;object-fit:cover;flex-shrink:0" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop'"/>
+      <img src="${getItemImageUrl(item)}" alt="${item.nom}" style="width:46px;height:46px;border-radius:9px;object-fit:cover;flex-shrink:0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f0faf4' rx='8'/%3E%3Ctext x='40' y='48' font-size='28' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3E🍽%3C/text%3E%3C/svg%3E'"/>
       <div style="flex:1;min-width:0">
         <div style="font-size:.84rem;font-weight:600;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.nom}</div>
         <div style="font-size:.7rem;color:var(--mid)">${item.cat}</div>
@@ -4171,8 +4170,8 @@ window.renderMenuEditor = function(){
   if(!container) return;
   container.innerHTML = window.MENU.map((item,idx) => `
     <div class="me-item">
-      <img class="me-thumb" src="${getItemImageUrl(item)}" alt="${item.nom}" loading="lazy"
-           onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop'"/>
+      <img class="me-thumb" src="${getItemImageUrl(item)}" alt="${item.nom}" loading="eager"
+           onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f0faf4' rx='8'/%3E%3Ctext x='40' y='48' font-size='28' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3E🍽%3C/text%3E%3C/svg%3E'"/>
       <div class="me-info">
         <div class="me-name" title="${item.nom}">${item.nom}</div>
         <div class="me-cat">${item.cat}</div>
@@ -5101,10 +5100,10 @@ window.renderMenu = function(filter){
 
       div.innerHTML = `
         <div class="card-img-wrap">
-          <img class="card-img" src="${imgUrl}" alt="${nomEsc}" loading="lazy"
+          <img class="card-img" src="${imgUrl}" alt="${nomEsc}" loading="eager"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="card-img-fallback" style="display:none">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=60&h=60&fit=crop" alt="" style="width:50px;height:50px;object-fit:cover;border-radius:8px;opacity:.4"/>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f0faf4' rx='6'/%3E%3Ctext x='30' y='38' font-size='22' text-anchor='middle' fill='%231A6B3C' opacity='.4'%3E🍽%3C/text%3E%3C/svg%3E" alt="" style="width:50px;height:50px;object-fit:cover;border-radius:8px;opacity:.4"/>
           </div>
           ${item.dispo===false?'<div class="card-unavail-badge">Indisponible</div>':''}
           ${badgeHtml}
@@ -5539,18 +5538,59 @@ const DEMO = {
     this.elapsed = 0;
     this.lastTs  = null;
     this.paused  = false;
-    this.playing = true;
+    this.playing = false;
     this.currentChapter = -1;
     this.actionsDone.clear();
-    // Close all modals
-    ['cartDrawer','salonModal','livraisonModal','dishModal','adminModal'].forEach(id => {
+
+    // Fermer TOUS les modals — fermeture forcée inconditionnelle
+    document.body.style.overflow = '';
+    [
+      'livraisonModal', 'salonModal', 'cartDrawer',
+      'dishModal', 'adminModal', 'qrModal', 'helpPanel'
+    ].forEach(id => {
       const el = document.getElementById(id);
-      if(el){ el.style.display=''; el.classList.remove('open','show'); }
+      if(!el) return;
+      el.style.display = 'none';
+      el.classList.remove('open', 'show');
     });
+    // Appeler aussi les fonctions dédiées pour nettoyer l'état interne
+    if(typeof closeCart === 'function') try { closeCart(); } catch(e){}
+    if(typeof closeLivraisonModal === 'function') try { closeLivraisonModal(); } catch(e){}
+    if(typeof closeSalonModal === 'function') try { closeSalonModal(); } catch(e){}
+    if(typeof closeDishModal === 'function') try { closeDishModal(); } catch(e){}
+
+    // Vider le panier de la démo
+    if(typeof cart !== 'undefined') { cart.length = 0; }
+    if(typeof renderCart === 'function') renderCart();
+
+    // Réinitialiser la recherche
+    const searchInput = document.getElementById('searchInput');
+    if(searchInput) { searchInput.value = ''; }
+
+    // Remettre le filtre régime à "tout" directement (sans simulation de clic)
+    if(typeof activeDiet !== 'undefined') {
+      // Forcer activeDiet via setDiet si disponible
+      const allChip = document.querySelector('.diet-chip');
+      if(allChip && typeof setDiet === 'function') {
+        setDiet('all', allChip);
+      }
+    }
+
+    // Réinitialiser le scroll
     this.spotlight(null);
+    window.scrollTo({top: 0, behavior: 'instant'});
+
+    // Reconstruire complètement le menu (recrée tous les éléments img)
+    if(typeof window.renderMenu === 'function') window.renderMenu('');
+
     document.getElementById('demoPlayIcon').innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-    this.raf = requestAnimationFrame(t => this.tick(t));
-    this.runChapterAt(0);
+
+    // Petit délai pour que le navigateur initialise les images avant de démarrer
+    setTimeout(() => {
+      this.playing = true;
+      this.raf = requestAnimationFrame(t => this.tick(t));
+      this.runChapterAt(0);
+    }, 300);
   },
 
   skipChapter(dir) {
